@@ -101,7 +101,7 @@ const Services = () => {
             </div>
             <h1>{service.title}</h1>
             <p>{service.shortDescription}</p>
-            <Link to="/contact" className="cta-button">
+            <Link to="/locations#contactForm" className="cta-button">
               Book an Appointment
             </Link>
           </div>
@@ -170,7 +170,7 @@ const Services = () => {
                 <p className="info-text">{service.providerContent}</p>
               </div>
             </div>
-            <Link to="/contact" className="cta-button" style={{ margin: "20px" }}>
+            <Link to="/locations#contactForm" className="cta-button" style={{ margin: "20px" }}>
               Book an Appointment
             </Link>
           </div>
