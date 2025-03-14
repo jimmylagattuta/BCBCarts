@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { servicesData } from "../data";
+import { servicesData, locationsData } from "../data";
 import Contact from "../pages/main/Contact";
 import FooterComponent from "../sections/FooterComponent";
 import "./Services.css";
 
 const Services = () => {
-  // 1. Call hooks at the top level
   const { serviceId } = useParams();
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 569);
 
@@ -17,10 +16,8 @@ const Services = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // 2. Retrieve the service from your data
   const service = servicesData[serviceId];
 
-  // 3. If not found, return early – after the hooks
   if (!service) {
     return (
       <div className="service-page">
@@ -32,18 +29,16 @@ const Services = () => {
     );
   }
 
-  // 4. Use desktop images if available, else fall back to mobile
-  const heroImage =
-    isDesktop && service.images.desktopHero
-      ? service.images.desktopHero
-      : service.images.hero;
+  // Determine hero images
+  const heroImage = isDesktop && service.images.desktopHero
+    ? service.images.desktopHero
+    : service.images.hero;
 
-  const whyChooseBg =
-    isDesktop && service.desktopWhyChooseBg
-      ? service.desktopWhyChooseBg
-      : service.whyChooseBg;
+  const whyChooseBg = isDesktop && service.desktopWhyChooseBg
+    ? service.desktopWhyChooseBg
+    : service.whyChooseBg;
 
-  // Build the rich snippet using Schema.org's Service type for golf cart services.
+  // Schema.org snippet
   const richSnippet = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -52,13 +47,12 @@ const Services = () => {
     "url": `https://bcbcarts.com/services/${serviceId}`,
     "image": service.images.desktopHero || service.images.hero,
     "areaServed": [
-      // Los Angeles area cities
+      // LA/OC cities
       "Long Beach",
       "Seal Beach",
       "Huntington Beach",
       "San Pedro",
       "Lakewood",
-      // Key Orange County Cities
       "Irvine",
       "Anaheim",
       "Santa Ana",
@@ -85,7 +79,6 @@ const Services = () => {
     }
   };
 
-
   return (
     <>
       <Helmet>
@@ -93,6 +86,7 @@ const Services = () => {
           {JSON.stringify(richSnippet)}
         </script>
       </Helmet>
+
       <div className="service-page">
         {/* HERO SECTION */}
         <div
@@ -113,7 +107,7 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Overlay Images: Render only on mobile (<768px) */}
+        {/* Overlay Images (mobile only) */}
         {!isDesktop && (
           <div className="overlay-images">
             <img src={service.images.overlay1} alt="Overlay 1" className="image1" />
@@ -175,18 +169,41 @@ const Services = () => {
               <div className="provider-text">
                 <p className="info-text">{service.providerContent}</p>
               </div>
-
             </div>
             <Link to="/contact" className="cta-button" style={{ margin: "20px" }}>
               Book an Appointment
             </Link>
           </div>
         </div>
-
-        {/* FOOTER */}
-
       </div>
+
+      {/* CONTACT FORM */}
       <Contact />
+
+      {/* LOCATIONS LIST BELOW THE CONTACT FORM */}
+      <div className="locations-list-container">
+        <h2 className="locations-list-title">Available at these Locations</h2>
+        <div className="locations-grid">
+          {Object.entries(locationsData).map(([key, loc]) => {
+            const bgImage = loc.desktopImage || loc.heroImage;
+            return (
+              <Link to={`/locations/${key}`} className="location-card" key={key}>
+                <div
+                  className="location-image"
+                  style={{ backgroundImage: `url(${bgImage})` }}
+                ></div>
+                <div className="location-content">
+                  <h3>{loc.name}</h3>
+                  {/* If you want to show address (if any) */}
+                  {loc.address !== "Service Area" && <p>{loc.address}</p>}
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* FOOTER */}
       <FooterComponent />
     </>
   );
