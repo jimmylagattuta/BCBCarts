@@ -6,13 +6,13 @@ function Contact() {
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',  // Added phone number field
+    phone: '',
     message: '',
     agreement: false,
   });
-
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -38,7 +38,6 @@ function Contact() {
     }
     if (!formData.message) newErrors.message = 'Message is required.';
     if (!formData.agreement) newErrors.agreement = 'You must agree to the terms.';
-
     return newErrors;
   };
 
@@ -46,6 +45,7 @@ function Contact() {
     e.preventDefault();
     const formErrors = validateForm();
     if (Object.keys(formErrors).length === 0) {
+      setIsSubmitting(true);
       const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
       try {
         const response = await fetch('https://bcb-carts-f625407d6d04.herokuapp.com/contact', {
@@ -54,9 +54,7 @@ function Contact() {
             'Content-Type': 'application/json',
             'X-CSRF-Token': csrfToken,
           },
-          body: JSON.stringify({
-            contact: formData,
-          }),
+          body: JSON.stringify({ contact: formData }),
         });
 
         if (response.ok) {
@@ -69,6 +67,8 @@ function Contact() {
       } catch (error) {
         console.error('Error sending email:', error);
         alert('There was an error sending your message. Please try again later.');
+      } finally {
+        setIsSubmitting(false);
       }
     } else {
       setErrors(formErrors);
@@ -125,7 +125,7 @@ function Contact() {
             {errors.email && <span className="error-message">{errors.email}</span>}
           </div>
           <div className="contact-form-group">
-            <label htmlFor="phone">Phone Number</label> {/* Added phone input */}
+            <label htmlFor="phone">Phone Number</label>
             <input
               type="tel"
               id="phone"
@@ -163,8 +163,8 @@ function Contact() {
             </label>
             {errors.agreement && <span className="error-message">{errors.agreement}</span>}
           </div>
-          <button type="submit" className="contact-submit-button">
-            Send
+          <button type="submit" className="contact-submit-button" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Send"}
           </button>
         </form>
       ) : (
