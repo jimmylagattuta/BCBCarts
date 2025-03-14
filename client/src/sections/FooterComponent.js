@@ -1,4 +1,14 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faFacebook, 
+  faSnapchat, 
+  faTiktok, 
+  faYoutube, 
+  faPinterest, 
+  faThreads, 
+  faInstagram 
+} from "@fortawesome/free-brands-svg-icons";
 import "./FooterComponent.css";
 
 function FooterComponent() {
@@ -8,7 +18,6 @@ function FooterComponent() {
       <div className="footer-top-grid">
         {/* 1) BRAND + TAGLINE COLUMN */}
         <div className="footer-col brand-col">
-          {/* Fancy Brand Row */}
           <div className="fancy-brand-row">
             <img
               src="https://i.postimg.cc/vT5Y3Jbb/BCBLogo-1.webp"
@@ -24,28 +33,67 @@ function FooterComponent() {
               </h2>
             </div>
           </div>
-
-          {/* Tagline + Social Icons */}
           <div className="footer-tagline-container">
             <p className="fancy-brand-slogan">
               Experience quality, style, and performance with our range of electric carts.
             </p>
             <div className="footer-social-icons">
               <a
-                href="https://www.instagram.com/bcbcarts"
+                href="https://www.facebook.com/BCBCarts/about"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-circle"
+                className="social-circle facebook"
               >
-                <img
-                  src="https://i.postimg.cc/j5G6vJHJ/Screenshot-2025-02-22-181601-bg-removed-png.webp"
-                  alt="Instagram"
-                  className="social-icon-img"
-                  height="24"
-                  width="24"
-                />
+                <FontAwesomeIcon icon={faFacebook} />
               </a>
-              {/* Add more social icons as needed */}
+              <a
+                href="https://www.snapchat.com/add/mebcbatyawho?sender_web_id=e45b430a-0cac-45b4-a794-4261d854c91c&device_type=ios&is_copy_url=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-circle snapchat"
+              >
+                <FontAwesomeIcon icon={faSnapchat} />
+              </a>
+              <a
+                href="https://tiktok.com/@bcbcarts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-circle tiktok"
+              >
+                <FontAwesomeIcon icon={faTiktok} />
+              </a>
+              <a
+                href="https://m.youtube.com/@bcbcarts2640"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-circle youtube"
+              >
+                <FontAwesomeIcon icon={faYoutube} />
+              </a>
+              <a
+                href="https://www.pinterest.com/bblackman0408/?invite_code=a5411783616e4987aa516c60050893e1&sender=801289096109711486"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-circle pinterest"
+              >
+                <FontAwesomeIcon icon={faPinterest} />
+              </a>
+              <a
+                href="https://www.threads.net/@mebcbatyawho?invite=0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-circle threads"
+              >
+                <FontAwesomeIcon icon={faThreads} />
+              </a>
+              <a
+                href="https://www.instagram.com/mebcbatyawho/profilecard/?igsh=MzRlODBiNWFlZA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-circle instagram"
+              >
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
             </div>
           </div>
         </div>
@@ -59,7 +107,6 @@ function FooterComponent() {
             <li><a href="/locations">Locations</a></li>
             <li><a href="/services">Services</a></li>
             <li><a href="/contact">Contact Us</a></li>
-            <li><a href="/blog">Blog</a></li>
           </ul>
         </div>
 
@@ -120,16 +167,15 @@ function FooterComponent() {
             </li>
             <li>
               <strong>Email: </strong>
-              <a href="mailto:contact@yahoo.com">
+              <a href="mailto:mebcb@yahoo.com">
                 &nbsp;mebcb@yahoo.com
               </a>
             </li>
             <li>
               <strong>Hours:&nbsp; </strong>
-              Mon - Fri: 09:00 AM - 06:00 PM, Sat - Sun: Closed
+              08:00 AM - 05:00 PM
             </li>
           </ul>
-
           <p className="book-appointment-p">
             <a href="/contact" className="book-appointment-link">
               Contact Us

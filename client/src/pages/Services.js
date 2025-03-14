@@ -126,7 +126,7 @@ const Services = () => {
             <img
               src={
                 isDesktop
-                  ? "https://i.postimg.cc/FRn1qY8d/Screenshot-2025-03-11-190333.png"
+                  ? "https://i.postimg.cc/wTH3RwQL/i-Stock-944550986-2.webp"
                   : service.images.section
               }
               alt={service.title}
@@ -174,12 +174,7 @@ const Services = () => {
               <div className="provider-text">
                 <p className="info-text">{service.providerContent}</p>
               </div>
-              <div className="provider-image">
-                <img
-                  src="https://i.postimg.cc/tRW060nV/Screenshot-2025-03-08-132625-1-1.webp"
-                  alt="Our Provider"
-                />
-              </div>
+
             </div>
             <Link to="/contact" className="cta-button" style={{ margin: "20px" }}>
               Book an Appointment

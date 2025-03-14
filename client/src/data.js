@@ -236,8 +236,8 @@ export const servicesData = {
     "long-beach": {
       name: "BCB Carts - Long Beach",
       address: "123 Main Street, Long Beach, CA 90802", // Full physical address
-      heroImage: "https://i.postimg.cc/LongBeachHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/LongBeachDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/yYd5YH3G/i-Stock-1168194115-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/yYd5YH3G/i-Stock-1168194115-1-1.webp", // Update with actual URL
       description:
         "Our Long Beach location offers full-service electric cart sales, rentals, and repairs.",
       phone: "+1-323-333-3471",
@@ -248,8 +248,8 @@ export const servicesData = {
     "griffin": {
       name: "BCB Carts - Griffin",
       address: "456 Electric Street, Griffin, GA 30223", // Full physical address for Georgia
-      heroImage: "https://i.postimg.cc/GriffinHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/GriffinDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/tJRc60SY/i-Stock-1161499220-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/tJRc60SY/i-Stock-1161499220-1-1.webp", // Update with actual URL
       description:
         "Our Griffin location in Georgia offers a full range of electric cart services including sales, rentals, and repairs.",
       phone: "+1-404-555-1234",
@@ -260,8 +260,8 @@ export const servicesData = {
     "seal-beach": {
       name: "BCB Carts - Seal Beach Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/SealBeachHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/SealBeachDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/CMHYfS1L/i-Stock-660791392-1-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/CMHYfS1L/i-Stock-660791392-1-1-1.webp", // Update with actual URL
       description:
         "We proudly serve Seal Beach, CA with expert electric cart solutions.",
       phone: "+1-323-333-3471",
@@ -272,8 +272,8 @@ export const servicesData = {
     "huntington-beach": {
       name: "BCB Carts - Huntington Beach Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/HuntingtonBeachHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/HuntingtonBeachDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/g20YWQGc/i-Stock-1018058852-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/g20YWQGc/i-Stock-1018058852-1-1.webp", // Update with actual URL
       description:
         "Providing reliable electric cart sales, rentals, and maintenance in Huntington Beach, CA.",
       phone: "+1-323-333-3471",
@@ -284,8 +284,8 @@ export const servicesData = {
     "san-pedro": {
       name: "BCB Carts - San Pedro Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/SanPedroHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/SanPedroDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/fb2SsmGp/i-Stock-1357542834-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/fb2SsmGp/i-Stock-1357542834-1-1.webp", // Update with actual URL
       description:
         "We offer electric cart solutions to San Pedro, CA and nearby areas.",
       phone: "+1-323-333-3471",
@@ -296,8 +296,8 @@ export const servicesData = {
     "lakewood": {
       name: "BCB Carts - Lakewood Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/LakewoodHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/LakewoodDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/9Q1rPyQ0/i-Stock-1288201650-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/9Q1rPyQ0/i-Stock-1288201650-1-1.webp", // Update with actual URL
       description:
         "Offering expert electric cart services in Lakewood, CA.",
       phone: "+1-323-333-3471",
@@ -308,8 +308,8 @@ export const servicesData = {
     "irvine": {
       name: "BCB Carts - Irvine Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/IrvineHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/IrvineDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/43ZmVBgr/i-Stock-1192432287-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/43ZmVBgr/i-Stock-1192432287-1-1.webp", // Update with actual URL
       description:
         "Providing comprehensive electric cart services in Irvine, CA.",
       phone: "+1-323-333-3471",
@@ -320,8 +320,8 @@ export const servicesData = {
     "anaheim": {
       name: "BCB Carts - Anaheim Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/AnaheimHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/AnaheimDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/HLC73TQv/i-Stock-1185569454-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/HLC73TQv/i-Stock-1185569454-1-1.webp", // Update with actual URL
       description:
         "Delivering tailored electric cart services in Anaheim, CA.",
       phone: "+1-323-333-3471",
@@ -332,8 +332,8 @@ export const servicesData = {
     "santa-ana": {
       name: "BCB Carts - Santa Ana Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/SantaAnaHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/SantaAnaDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/htQ9pCNv/i-Stock-1346654769-1-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/htQ9pCNv/i-Stock-1346654769-1-1-1.webp", // Update with actual URL
       description:
         "Serving Santa Ana, CA with quality electric cart services.",
       phone: "+1-323-333-3471",
@@ -344,8 +344,8 @@ export const servicesData = {
     "newport-beach": {
       name: "BCB Carts - Newport Beach Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/NewportBeachHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/NewportBeachDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/HkFtmGbb/i-Stock-1925763152-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/HkFtmGbb/i-Stock-1925763152-1-1.webp", // Update with actual URL
       description:
         "Offering expert electric cart services in Newport Beach, CA.",
       phone: "+1-323-333-3471",
@@ -356,8 +356,8 @@ export const servicesData = {
     "costa-mesa": {
       name: "BCB Carts - Costa Mesa Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/CostaMesaHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/CostaMesaDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/9XqCXy3T/i-Stock-1193585935-1-2.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/9XqCXy3T/i-Stock-1193585935-1-2.webp", // Update with actual URL
       description:
         "Providing efficient electric cart services in Costa Mesa, CA.",
       phone: "+1-323-333-3471",
@@ -368,8 +368,8 @@ export const servicesData = {
     "cypress": {
       name: "BCB Carts - Cypress Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/CypressHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/CypressDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/fTjCYgnN/i-Stock-1201981141-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/fTjCYgnN/i-Stock-1201981141-1-1.webp", // Update with actual URL
       description:
         "Delivering quality electric cart services in Cypress, CA.",
       phone: "+1-323-333-3471",
@@ -380,8 +380,8 @@ export const servicesData = {
     "buena-park": {
       name: "BCB Carts - Buena Park Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/BuenaParkHero.jpg", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/BuenaParkDesktop.jpg", // Update with actual URL
+      heroImage: "https://i.postimg.cc/TwF7HyCv/i-Stock-123091243-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/TwF7HyCv/i-Stock-123091243-1-1.webp", // Update with actual URL
       description:
         "Proudly serving Buena Park, CA with our range of electric cart solutions.",
       phone: "+1-323-333-3471",

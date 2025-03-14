@@ -119,31 +119,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Provider / Our Story Section */}
-      <section className="aboutus-provider">
-        <h2 className="aboutus-provider-title">Our Story</h2>
-        <div className="aboutus-provider-row">
-          <div className="aboutus-provider-image">
-            {/* You can add an image of the founder or your team here */}
-          </div>
-          <div className="aboutus-provider-info">
-            <h3>Brandon, Founder of BCB Carts</h3>
-            <p>
-              At BCB Carts, we combine industry expertise with a passion for quality and
-              customer satisfaction. Founded with the goal of providing leisure-filled
-              electric vehicles, our team is dedicated to ensuring that every customer
-              receives exceptional service and support.
-            </p>
-            <p>
-              Our commitment to innovation, quality, and reliability is evident in every
-              cart we sell, rent, or repair. We proudly serve communities in Long Beach,
-              California, and Griffin, Georgia—delivering top-notch electric cart solutions
-              that exceed expectations.
-            </p>
-          </div>
-        </div>
-      </section>
-
+     
       {/* Services for SEO */}
       <section className="aboutus-services">
         <h2 className="aboutus-services-title">Our Services</h2>

@@ -3,31 +3,29 @@ import "./FAQ.css";
 
 const faqData = [
   {
-    question: "What insurance do you currently accept?",
+    question: "What services do you offer?",
     answer:
-      "Currently, we are only treating personal injury patients. (Patient on liens)",
+      "BCB Carts offers a variety of electric cart services, including cart sales, rentals, professional installations, lithium battery upgrades, parts & accessories, pressure washing, custom welds, and electronics upgrades.",
   },
   {
-    question: "Do you offer telemedicine appointments?",
+    question: "Which areas do you serve?",
     answer:
-      "Yes! We offer expert, trusted telehealth services by video and phone.",
+      "We proudly serve customers throughout Southern California – including Long Beach, Seal Beach, Huntington Beach, San Pedro, Lakewood, and key Orange County cities – as well as select locations in Georgia.",
   },
   {
-    question: "Do you perform EMG diagnostics?",
-    answer: "Yes, in all of our locations!",
-  },
-  {
-    question: "Do you perform outpatient injections?",
-    answer: "Yes, in all of our locations!",
-  },
-  {
-    question: "How soon can my client be scheduled?",
-    answer: "Within 24-48 hrs. of referral receipt.",
-  },
-  {
-    question: "How to send a referral?",
+    question: "Do you offer financing or leasing options?",
     answer:
-      "Send us an email to referrals@californiapremierpainclinics.com or drop us a file on our website.",
+      "Yes, we provide competitive financing and leasing options to help you get the electric cart that fits your lifestyle or business needs.",
+  },
+  {
+    question: "How can I schedule an appointment?",
+    answer:
+      "You can schedule an appointment by filling out our contact form or by calling us directly at +1-323-333-3471.",
+  },
+  {
+    question: "What is your turnaround time for installations?",
+    answer:
+      "Our professional installations are typically scheduled within a few days after consultation, depending on your requirements.",
   },
 ];
 
@@ -42,11 +40,8 @@ const FAQ = () => {
     <section className="faqs-section">
       <h1 className="faqs-title">Frequently Asked Questions</h1>
       <p className="faqs-subtitle">
-        Please reach us at{" "}
-        <a href="mailto:referrals@californiapremierpainclinics.com">
-          referrals@californiapremierpainclinics.com
-        </a>{" "}
-        if you cannot find an answer to your question.
+        Please reach out at{" "}
+        <a href="mailto:mebcb@yahoo.com">mebcb@yahoo.com</a> if you can’t find an answer.
       </p>
       <div className="faqs-list">
         {faqData.map((item, index) => (

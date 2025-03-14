@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { servicesData } from '../data';
 
 function Navbar() {
@@ -7,6 +7,7 @@ function Navbar() {
   const [subMenuOpen, setSubMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
   const navigate = useNavigate();
+  const location = useLocation();
   const hoverTimeout = useRef(null);
 
   // Toggle entire mobile menu
@@ -22,6 +23,23 @@ function Navbar() {
   // Navigate to a route & close all menus
   const handleNavItemClick = (path) => {
     navigate(path);
+    setIsOpen(false);
+    setSubMenuOpen(false);
+  };
+
+  // New handler for "Send Us An Email!" that checks current pathname
+  const handleContactClick = () => {
+    const targetHash = "#contactForm";
+    if (location.pathname.startsWith("/locations")) {
+      // If already on locations page, scroll smoothly to contact form
+      const element = document.getElementById("contactForm");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Otherwise, navigate to locations page with hash
+      navigate(`/locations${targetHash}`);
+    }
     setIsOpen(false);
     setSubMenuOpen(false);
   };
@@ -73,17 +91,14 @@ function Navbar() {
         <div className="navbar-brand">
           <div className="navbar-logo" onClick={() => handleNavItemClick('/')}>
             <img
-              src="https://i.postimg.cc/vT5Y3Jbb/BCBLogo-1.webp"
+              src="https://i.postimg.cc/Qx1Xxjrb/BCBLogo-1.webp"
               alt="Company Logo"
               loading="eager"
               height="75"
               width="85"
             />
           </div>
-          <div
-            className="company-name-desktop"
-            onClick={() => handleNavItemClick('/')}
-          >
+          <div className="company-name-desktop" onClick={() => handleNavItemClick('/')}>
             BCB Carts
           </div>
         </div>
@@ -137,7 +152,7 @@ function Navbar() {
             About Us
           </li>
 
-          <li className="nav-item book-appointment" onClick={() => handleNavItemClick('/locations')}>
+          <li className="nav-item book-appointment" onClick={handleContactClick}>
             Send Us An Email!
           </li>
         </ul>

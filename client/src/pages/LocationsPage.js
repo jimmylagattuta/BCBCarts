@@ -1,23 +1,15 @@
-import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { locationsData } from "../data";
-import LocationsSection from "../sections/LocationsSection"; // Your office list component
+import LocationsSection from "../sections/LocationsSection"; // Office list component
 import SingleLocation from "../sections/SingleLocation";
+import Contact from "./main/Contact";
 import FooterComponent from "../sections/FooterComponent";
 import "./LocationsPage.css";
 
 function LocationsPage() {
   const { locationId } = useParams();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-    agreement: false,
-  });
-  const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   // Determine whether we are showing a single location or all locations.
@@ -27,7 +19,6 @@ function LocationsPage() {
   let locationsRichSnippet = null;
   if (!isSingleLocation) {
     const locationsArray = Object.entries(locationsData).map(([key, loc]) => {
-      // Parse the address components from a comma-separated address string.
       const addressParts = loc.address ? loc.address.split(",").map(s => s.trim()) : [];
       let streetAddress = loc.address;
       let addressLocality = "";
@@ -63,7 +54,7 @@ function LocationsPage() {
     };
   }
 
-  // Determine the content for a single location or for the list.
+  // Determine content: single location or list
   let officeContent = null;
   if (locationId) {
     const office = locationsData[locationId];
@@ -80,6 +71,16 @@ function LocationsPage() {
   } else {
     officeContent = <LocationsSection showButton={false} />;
   }
+
+  // Optional: if the URL has a hash, scroll into view.
+  useEffect(() => {
+    if (window.location.hash === "#contactForm") {
+      const element = document.getElementById("contactForm");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
 
   return (
     <div>
@@ -99,24 +100,13 @@ function LocationsPage() {
             We proudly serve customers across our key markets. Whether you're in Long Beach, CA or Griffin, GA, we're here to help you get the electric cart solutions you need.
           </p>
         </div>
-
-        {!submitted ? (
-          <form className="contact-container" onSubmit={/* your handleSubmit */ () => {}}>
-            {/* Form fields go here */}
-          </form>
-        ) : (
-          <div className="contact-submitted-message">
-            <h3>Thank You!</h3>
-            <p>
-              Your message has been sent successfully. We will get back to you shortly.
-            </p>
-          </div>
-        )}
-
-        {/* Render office details or the full locations list */}
+        {/* (The contact form at the top might be removed if you want to rely solely on the contact section below) */}
         {officeContent}
       </div>
-
+      {/* Contact form wrapped with an id so the page can scroll to it */}
+      <div id="contactForm">
+        <Contact />
+      </div>
       <FooterComponent />
     </div>
   );
