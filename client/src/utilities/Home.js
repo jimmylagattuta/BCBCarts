@@ -7,6 +7,7 @@ import HeroSection from "../sections/HeroSection";
 const LazySocial = lazy(() => import('../components/Social'));
 const FooterComponent = lazy(() => import('../sections/FooterComponent'));
 const AboutUsComponent = lazy(() => import('../sections/AboutUsComponent'));
+const Contact = lazy(() => import('../pages/main/Contact'));
 const PlaquesComponent = lazy(() => import("../sections/PlaquesComponent"));
 const OurServicesComponent = lazy(() => import("../sections/OurServicesComponent"));
 const HowItWorksComponent = lazy(() => import("../sections/HowItWorksComponent"));
@@ -167,6 +168,7 @@ const Home = ({ scrollToContact, reviews }) => {
         <Suspense fallback={<div>Loading...</div>}>
           <LazySocial />
           <AboutUsComponent />
+          <Contact />
           <PlaquesComponent />
           <OurServicesComponent />
           <HowItWorksComponent />

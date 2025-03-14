@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { servicesData } from "../data";
+import Contact from "../pages/main/Contact";
 import FooterComponent from "../sections/FooterComponent";
 import "./Services.css";
 
@@ -183,8 +184,10 @@ const Services = () => {
         </div>
 
         {/* FOOTER */}
-        <FooterComponent />
+
       </div>
+      <Contact />
+      <FooterComponent />
     </>
   );
 };

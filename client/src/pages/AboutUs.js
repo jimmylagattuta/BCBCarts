@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { servicesData } from "../data";
+import Contact from "../pages/main/Contact";
 import FooterComponent from "../sections/FooterComponent";
 import "./AboutUs.css";
 
@@ -140,7 +141,7 @@ const AboutUs = () => {
           ))}
         </div>
       </section>
-
+      <Contact />
       <FooterComponent />
     </div>
   );

@@ -296,8 +296,8 @@ export const servicesData = {
     "lakewood": {
       name: "BCB Carts - Lakewood Service",
       address: "Service Area",
-      heroImage: "https://i.postimg.cc/9Q1rPyQ0/i-Stock-1288201650-1-1.webp", // Update with actual URL
-      desktopImage: "https://i.postimg.cc/9Q1rPyQ0/i-Stock-1288201650-1-1.webp", // Update with actual URL
+      heroImage: "https://i.postimg.cc/3rySPBMM/i-Stock-1288201581-1-1-1.webp", // Update with actual URL
+      desktopImage: "https://i.postimg.cc/3rySPBMM/i-Stock-1288201581-1-1-1.webp", // Update with actual URL
       description:
         "Offering expert electric cart services in Lakewood, CA.",
       phone: "+1-323-333-3471",

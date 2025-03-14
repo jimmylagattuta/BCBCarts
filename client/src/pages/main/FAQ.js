@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./FAQ.css";
+import Contact from "./Contact"; // Adjust path as necessary
+import FooterComponent from "../../sections/FooterComponent"; // Adjust path as necessary
 
 const faqData = [
   {
@@ -37,26 +39,30 @@ const FAQ = () => {
   };
 
   return (
-    <section className="faqs-section">
-      <h1 className="faqs-title">Frequently Asked Questions</h1>
-      <p className="faqs-subtitle">
-        Please reach out at{" "}
-        <a href="mailto:mebcb@yahoo.com">mebcb@yahoo.com</a> if you can’t find an answer.
-      </p>
-      <div className="faqs-list">
-        {faqData.map((item, index) => (
-          <div key={index} className="faq-item">
-            <div className="faq-question" onClick={() => toggleFaq(index)}>
-              {item.question}
-              <span className="faq-toggle">{openIndex === index ? "–" : "+"}</span>
+    <>
+      <section className="faqs-section">
+        <h1 className="faqs-title">Frequently Asked Questions</h1>
+        <p className="faqs-subtitle">
+          Please reach out at{" "}
+          <a href="mailto:mebcb@yahoo.com">mebcb@yahoo.com</a> if you can’t find an answer.
+        </p>
+        <div className="faqs-list">
+          {faqData.map((item, index) => (
+            <div key={index} className="faq-item">
+              <div className="faq-question" onClick={() => toggleFaq(index)}>
+                {item.question}
+                <span className="faq-toggle">{openIndex === index ? "–" : "+"}</span>
+              </div>
+              {openIndex === index && (
+                <div className="faq-answer">{item.answer}</div>
+              )}
             </div>
-            {openIndex === index && (
-              <div className="faq-answer">{item.answer}</div>
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+      <Contact />
+      <FooterComponent />
+    </>
   );
 };
 
