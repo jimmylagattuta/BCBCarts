@@ -149,9 +149,161 @@ const Home = ({ scrollToContact, reviews }) => {
   return (
     <div>
         <Helmet>
-            <script type="application/ld+json">
-            {JSON.stringify(richSnippet)}
-            </script>
+<script type="application/ld+json">
+{`
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.bcbcarts.com/#organization",
+      "name": "BCB Carts",
+      "url": "https://www.bcbcarts.com",
+      "logo": "https://www.bcbcarts.com/BCBLogo.jpg",
+      "description": "BCB Carts is California and Georgia’s trusted electric cart provider. We specialize in golf cart sales, rentals, installs, lithium upgrades, accessories, electronics, custom welding, and pressure wash services.",
+      "founder": {
+        "@type": "Person",
+        "name": "Brandon",
+        "jobTitle": "Founder"
+      },
+      "sameAs": [
+        "https://www.facebook.com/BCBCarts/about",
+        "https://www.snapchat.com/add/mebcbatyawho?sender_web_id=e45b430a-0cac-45b4-a794-4261d854c91c&device_type=ios&is_copy_url=true",
+        "https://tiktok.com/@bcbcarts",
+        "https://m.youtube.com/@bcbcarts2640",
+        "https://www.pinterest.com/bblackman0408/?invite_code=a5411783616e4987aa516c60050893e1&sender=801289096109711486",
+        "https://www.threads.net/@mebcbatyawho?invite=0",
+        "https://www.instagram.com/mebcbatyawho/profilecard/?igsh=MzRlODBiNWFlZA=="
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-323-333-3471",
+        "contactType": "Customer Service",
+        "availableLanguage": ["English"],
+        "areaServed": [
+          "Long Beach", "Seal Beach", "Huntington Beach", "San Pedro", "Lakewood",
+          "Irvine", "Anaheim", "Santa Ana", "Newport Beach", "Costa Mesa",
+          "Cypress", "Buena Park", "Griffin"
+        ]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Long Beach",
+        "addressRegion": "CA",
+        "postalCode": "90802",
+        "addressCountry": "US"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Electric Cart Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cart Sales",
+              "description": "High-performance, stylish, and reliable electric carts for both leisure and business.",
+              "url": "https://www.bcbcarts.com/services/cart-sales"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cart Rentals",
+              "description": "Flexible rental options for events, resorts, and short-term needs.",
+              "url": "https://www.bcbcarts.com/services/cart-rentals"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Installs",
+              "description": "Professional golf cart system installation with peak performance and safety in mind.",
+              "url": "https://www.bcbcarts.com/services/installs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lithium Battery Upgrades",
+              "description": "Upgrade to modern lithium systems for improved performance and battery life.",
+              "url": "https://www.bcbcarts.com/services/lithium"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Parts & Accessories",
+              "description": "OEM-quality parts and upgrades for your electric cart.",
+              "url": "https://www.bcbcarts.com/services/parts"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pressure Wash Services",
+              "description": "Showroom-quality cleaning to protect and refresh your cart’s appearance.",
+              "url": "https://www.bcbcarts.com/services/pressure-wash"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom Weld & Fabrication",
+              "description": "Custom metalwork and performance enhancements tailored to your needs.",
+              "url": "https://www.bcbcarts.com/services/custom-weld"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Electronics & Upgrades",
+              "description": "Cutting-edge cart tech including sound systems, control upgrades, and displays.",
+              "url": "https://www.bcbcarts.com/services/electronics"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.bcbcarts.com/#website",
+      "url": "https://www.bcbcarts.com",
+      "name": "BCB Carts",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://www.bcbcarts.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.bcbcarts.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.bcbcarts.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.bcbcarts.com/"
+        }
+      ]
+    }
+  ]
+}
+`}
+</script>
+
             <title>BCB Carts - Your Trusted Partner in Electric Carts</title>
             <meta
             name="description"

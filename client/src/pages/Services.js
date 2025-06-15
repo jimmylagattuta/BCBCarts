@@ -29,7 +29,6 @@ const Services = () => {
     );
   }
 
-  // Determine hero images
   const heroImage = isDesktop && service.images.desktopHero
     ? service.images.desktopHero
     : service.images.hero;
@@ -38,57 +37,72 @@ const Services = () => {
     ? service.desktopWhyChooseBg
     : service.whyChooseBg;
 
-  // Schema.org snippet
-  const richSnippet = {
+  const url = `https://www.bcbcarts.com/services/${serviceId}`;
+
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": service.title,
-    "description": service.shortDescription,
-    "url": `https://bcbcarts.com/services/${serviceId}`,
-    "image": service.images.desktopHero || service.images.hero,
-    "areaServed": [
-      // LA/OC cities
-      "Long Beach",
-      "Seal Beach",
-      "Huntington Beach",
-      "San Pedro",
-      "Lakewood",
-      "Irvine",
-      "Anaheim",
-      "Santa Ana",
-      "Newport Beach",
-      "Costa Mesa",
-      "Fullerton",
-      "Garden Grove",
-      "Westminster",
-      "Tustin",
-      "Brea",
-      "Placentia",
-      "Cypress",
-      "Buena Park"
-    ],
-    "provider": {
-      "@type": "Organization",
-      "name": "BCB Carts",
-      "url": "https://bcbcarts.com",
-      "logo": "https://i.postimg.cc/vT5Y3Jbb/BCBLogo-1.webp"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://bcbcarts.com/services/${serviceId}`
-    }
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": url,
+        "name": service.title,
+        "description": service.shortDescription,
+        "url": url,
+        "image": heroImage,
+        "areaServed": [
+          "Long Beach", "Seal Beach", "Huntington Beach", "San Pedro", "Lakewood",
+          "Irvine", "Anaheim", "Santa Ana", "Newport Beach", "Costa Mesa",
+          "Fullerton", "Garden Grove", "Westminster", "Tustin", "Brea",
+          "Placentia", "Cypress", "Buena Park"
+        ],
+        "provider": {
+          "@type": "Organization",
+          "name": "BCB Carts",
+          "url": "https://www.bcbcarts.com",
+          "logo": "https://i.postimg.cc/vT5Y3Jbb/BCBLogo-1.webp"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": url
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.bcbcarts.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.bcbcarts.com/services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": service.title,
+            "item": url
+          }
+        ]
+      }
+    ]
   };
 
   return (
     <>
       <Helmet>
+        <title>{service.title} | BCB Carts</title>
+        <meta name="description" content={service.shortDescription} />
         <script type="application/ld+json">
-          {JSON.stringify(richSnippet)}
+          {JSON.stringify(structuredData)}
         </script>
       </Helmet>
 
       <div className="service-page">
-        {/* HERO SECTION */}
         <div
           className="service-hero"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -107,7 +121,6 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Overlay Images (mobile only) */}
         {!isDesktop && (
           <div className="overlay-images">
             <img src={service.images.overlay1} alt="Overlay 1" className="image1" />
@@ -115,7 +128,6 @@ const Services = () => {
           </div>
         )}
 
-        {/* MAIN CONTENT SECTION */}
         <div className="service-content">
           <div className="content-section">
             <img
@@ -127,22 +139,20 @@ const Services = () => {
               alt={service.title}
               className="content-image"
             />
-
             <div className="service-content-with-title">
               <h1 id="services-title-small">{service.title}</h1>
               <div className="content-text">
                 {service.mainContent
                   .split("\n\n")
-                  .filter((paragraph) => paragraph.trim() !== "")
-                  .map((paragraph, index) => (
-                    <p key={index}>{paragraph.trim()}</p>
+                  .filter((p) => p.trim() !== "")
+                  .map((p, i) => (
+                    <p key={i}>{p.trim()}</p>
                   ))}
               </div>
             </div>
           </div>
         </div>
 
-        {/* INFO SECTION with background image + dark overlay */}
         <div
           className="info-section"
           style={{
@@ -154,14 +164,12 @@ const Services = () => {
           <div className="info-overlay">
             <h2 className="info-title">{service.whyChooseTitle}</h2>
             <p className="info-text">{service.whyChooseContent}</p>
-
             <h3 className="info-subtitle">{service.helpTitle}</h3>
             <ul className="info-list">
               {service.helpList.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
             </ul>
-
             <Link to="/about-us">
               <h3 className="info-subtitle">{service.providerTitle}</h3>
             </Link>
@@ -177,10 +185,8 @@ const Services = () => {
         </div>
       </div>
 
-      {/* CONTACT FORM */}
       <Contact />
 
-      {/* LOCATIONS LIST BELOW THE CONTACT FORM */}
       <div className="locations-list-container">
         <h2 className="locations-list-title">Available at these Locations</h2>
         <div className="locations-grid">
@@ -194,7 +200,6 @@ const Services = () => {
                 ></div>
                 <div className="location-content">
                   <h3>{loc.name}</h3>
-                  {/* If you want to show address (if any) */}
                   {loc.address !== "Service Area" && <p>{loc.address}</p>}
                 </div>
               </Link>
@@ -203,7 +208,6 @@ const Services = () => {
         </div>
       </div>
 
-      {/* FOOTER */}
       <FooterComponent />
     </>
   );
