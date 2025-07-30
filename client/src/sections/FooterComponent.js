@@ -106,6 +106,7 @@ function FooterComponent() {
             <li><a href="/about-us">About Us</a></li>
             <li><a href="/locations">Locations</a></li>
             <li><a href="/services">Services</a></li>
+            <li><a href="/car-rentals">Car Rentals</a></li>
             <li><a href="/contact">Contact Us</a></li>
           </ul>
         </div>
@@ -114,6 +115,7 @@ function FooterComponent() {
         <div className="footer-col footer-section services-col">
           <h3>Services</h3>
           <ul>
+            <li><a href="/car-rentals">Car Rentals</a></li>
             <li><a href="/services/cart-sales">Cart Sales</a></li>
             <li><a href="/services/cart-rentals">Cart Rentals</a></li>
             <li><a href="/services/installs">Installs</a></li>
@@ -135,13 +137,6 @@ function FooterComponent() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src="https://i.postimg.cc/Sx95BsW6/inverted-image-1.webp"
-                  alt="Map icon"
-                  className="map-icon"
-                  height="16"
-                  width="16"
-                />
                 Long Beach - 123 Cart Avenue, Long Beach, CA 90802
               </a>
             </li>
@@ -151,13 +146,6 @@ function FooterComponent() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src="https://i.postimg.cc/Sx95BsW6/inverted-image-1.webp"
-                  alt="Map icon"
-                  className="map-icon"
-                  height="16"
-                  width="16"
-                />
                 Griffin - 456 Electric Street, Griffin, GA 30223
               </a>
             </li>

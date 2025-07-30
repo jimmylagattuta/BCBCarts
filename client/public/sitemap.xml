@@ -181,7 +181,35 @@
 
   <!-- Blog Section (If Applicable) -->
   <url>
-    <loc>https://www.bcbcarts.com/blog</loc>
+    <loc>https://www.bcbcarts.com/blogs</loc>
+    <lastmod>2025-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bcbcarts.com/car-rentals</loc>
+    <lastmod>2025-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bcbcarts.com/blog/best-cars-to-rent-in-long-beach</loc>
+    <lastmod>2025-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bcbcarts.com/blog/turo-vs-traditional-rentals-long-beach</loc>
+    <lastmod>2025-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bcbcarts.com/blog/long-beach-car-rentals-turo</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

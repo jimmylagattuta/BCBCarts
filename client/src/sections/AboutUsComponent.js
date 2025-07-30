@@ -27,10 +27,10 @@ function AboutUsComponent() {
           BCB Carts
         </p>
         <p className="about-us-paragraph">
-          At BCB Carts, we’re committed to providing dependable and stylish electric cart solutions for both leisure and business needs. Our dedicated team and trusted mechanics work together to deliver personalized services—from cart sales and rentals to professional installations and custom upgrades.
+          At BCB Carts, we’re committed to providing dependable and stylish transportation solutions—whether you're in the market for an electric cart or looking for a convenient car rental. Our dedicated team and trusted mechanics offer personalized service every step of the way, from sales and rentals to installations and upgrades.
         </p>
         <p className="about-us-paragraph">
-          Proudly serving customers throughout Southern California and beyond, we continuously strive to expand our service areas and enhance our offerings, ensuring your ride is always smooth and reliable.
+          Proudly serving customers throughout Southern California and beyond, we continue to expand our services to meet your needs—on the street or off the beaten path. Drive with confidence, ride with style.
         </p>
         <Link to="/about-us" className="about-us-button">
           Learn More About BCB Carts

@@ -1,11 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./OurServicesComponent.css";
 
 function OurServicesComponent() {
   const navigate = useNavigate();
 
   const treatments = [
+    {
+      title: "Car Rentals",
+      description: `Fast, reliable, and stylish car rentals for short trips, weekend getaways, or business use. Enjoy competitive rates and convenient service every step of the way.`,
+      link: "/car-rentals",
+      image: "https://res.cloudinary.com/djtsuktwb/image/upload/v1753832966/IMG_1869_j15ycp.jpg",
+    },
     {
       title: "Cart Sales",
       description: `Discover our premium electric carts for sale. Our selection combines performance and style, perfectly suited for personal enjoyment or business use.`,
@@ -57,43 +62,51 @@ function OurServicesComponent() {
   ];
 
   return (
-    <section className="our-services-section">
+    <section className="flex flex-wrap justify-center gap-5 px-5 py-12 bg-gray-100">
       {/* Header and Slogan */}
-      <div className="hero-content-title">
-        <div style={{ backgroundColor: "rgb(37, 54, 53)" }} className="line"></div>
-        <h1 style={{ color: "black" }} className="company-name">OUR SERVICES</h1>
-        <div style={{ backgroundColor: "rgb(37, 54, 53)" }} className="line"></div>
+      <div className="w-full flex items-center justify-center gap-4 mb-4">
+        <div className="h-0.5 w-20 bg-[#253635]" />
+        <h1 className="text-xl md:text-2xl font-bold text-[#253635] tracking-widest">
+          OUR SERVICES
+        </h1>
+        <div className="h-0.5 w-20 bg-[#253635]" />
       </div>
 
-      <p className="our-services-slogan">Drive with Confidence, Ride with Style.</p>
+      <p className="w-full text-center text-2xl md:text-3xl font-bold text-[#233533] leading-tight mb-10">
+        Drive with Confidence, Ride with Style.
+      </p>
 
       {/* Cards */}
       {treatments.map((treatment, index) => (
         <div
           key={index}
-          className="service-card"
           onClick={() => navigate(treatment.link)}
+          className="w-[445px] bg-white rounded-lg shadow-md cursor-pointer overflow-hidden transition-all duration-500 group relative"
         >
-          {/* FRONT (Desktop Default) */}
-          <div className="service-front">
+          {/* FRONT (Desktop default) */}
+          <div className="p-6 text-center bg-white group-hover:opacity-0 md:block hidden transition-opacity duration-500">
             <img
               src={treatment.image}
               alt={treatment.title}
-              className="service-image"
+              className="w-28 h-28 rounded-full object-cover mx-auto mb-4"
             />
-            <h2 className="service-title">{treatment.title}</h2>
-            <p className="service-link">Learn More About {treatment.title}</p>
+            <h2 className="text-xl font-bold text-gray-800 mb-2">{treatment.title}</h2>
+            <p className="text-sm text-gray-600 underline font-semibold">
+              Learn More About {treatment.title}
+            </p>
           </div>
 
-          {/* BACK (Desktop Hover, Mobile Default) */}
-          <div className="service-back">
+          {/* BACK (Desktop on hover, mobile default) */}
+          <div className="p-6 text-center bg-[#628a88] text-white md:hidden block group-hover:md:block group-hover:opacity-100 opacity-0 absolute inset-0 transition-opacity duration-500">
             <img
               src={treatment.image}
               alt={treatment.title}
-              className="service-image-back"
+              className="w-24 h-24 rounded-full object-cover mx-auto mb-3"
             />
-            <p className="service-description">{treatment.description}</p>
-            <p className="service-link">Learn More About {treatment.title}</p>
+            <p className="text-sm leading-relaxed mb-3">{treatment.description}</p>
+            <p className="text-sm underline font-semibold">
+              Learn More About {treatment.title}
+            </p>
           </div>
         </div>
       ))}

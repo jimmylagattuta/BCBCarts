@@ -42,7 +42,7 @@ function HeroSection() {
           </div>
           <h1 className="slogan">Your Trusted Partner in Leisure-Filled Electric Vehicles</h1>
           <p className="hero-paragraph">
-            At BCB Carts, we are committed to providing dependable electric carts and honest service for both personal and business needs. With a focused team and trusted mechanics, we offer tailored solutions—from cart sales and rentals to installations and upgrades—ensuring you enjoy a ride you can count on.
+            At BCB Carts, we’re your trusted partner for both electric cart solutions and reliable car rentals. Whether you're cruising the neighborhood or hitting the road for an event, our dependable fleet and friendly service ensure your ride is smooth, stylish, and stress-free. From sales and rentals to custom upgrades and installations—we’ve got you covered.
           </p>
           <h1 className="subslogan">Get in Contact Today!</h1>
           {/* Using a Link that goes to the LocationsPage with a hash */}

@@ -152,10 +152,19 @@ function Navbar() {
             About Us
           </li>
 
+          <li className="nav-item car-rentals-link" onClick={() => handleNavItemClick('/car-rentals')}>
+            Car Rentals
+          </li>
+
+          <li className="nav-item blog-link" onClick={() => handleNavItemClick('/blogs')}>
+            Blog
+          </li>
+
           <li className="nav-item book-appointment" onClick={handleContactClick}>
             Send Us An Email!
           </li>
         </ul>
+
       </div>
     </nav>
   );

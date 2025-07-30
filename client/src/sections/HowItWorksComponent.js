@@ -1,115 +1,103 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./HowItWorksComponent.css";
 
-function HowItWorksComponent() {
+const HowItWorksComponent = () => {
   const navigate = useNavigate();
-  
-  // For this example, clicking the inquiry link navigates to our contact form (or inquiry page)
+
   const handleContactFormClick = (e) => {
     e.preventDefault();
     navigate("/contact");
   };
 
+  const steps = [
+    {
+      step: 1,
+      title: "Start Your Journey",
+      img: "https://i.postimg.cc/T1zSsXbW/i-Stock-2151690936-4-1-1.webp",
+      alt: "Start your journey icon",
+      description: (
+        <>
+          Complete our{" "}
+          <a
+            href="/contact"
+            onClick={handleContactFormClick}
+            className="font-bold underline text-inherit hover:text-[#233535] transition-colors"
+          >
+            inquiry form
+          </a>{" "}
+          to let us know what you're looking for. Whether you’re interested in
+          buying, renting, or upgrading an electric cart or reserving a rental
+          car, we’ll help you get rolling.
+        </>
+      ),
+    },
+    {
+      step: 2,
+      title: "Consultation",
+      img: "https://i.postimg.cc/FKRsVjVk/i-Stock-2151690936-5-1-1.webp",
+      alt: "Consultation icon",
+      description:
+        "Our team reviews your request and helps you find the perfect cart or rental car. We’ll answer your questions and recommend the best options for your needs and budget.",
+    },
+    {
+      step: 3,
+      title: "Get on the Road",
+      img: "https://i.postimg.cc/q7Q2DXKs/i-Stock-2151690936-7-1.webp",
+      alt: "Get your vehicle icon",
+      description:
+        "Once you’ve made your choice, we’ll handle the details. Pick up your electric cart or rental car and hit the road with full support from our expert team.",
+    },
+  ];
+
   return (
-    <section 
-      className="how-it-works-section" 
-      aria-labelledby="how-it-works-title"
-    >
-      <div className="hero-content-title">
-        <div
-          style={{ backgroundColor: "rgb(37, 54, 53)", width: "40px", height: "2px" }}
-          className="line"
-        ></div>
-        <h1
-          style={{ color: "rgb(37, 54, 53)", fontSize: "0.9rem", fontWeight: "bolder" }}
-          className="company-name"
-        >
+    <section className="py-12 px-5 max-w-[1200px] mx-auto text-center bg-[#fefefe]">
+      {/* Title section */}
+      <div className="flex items-center justify-center gap-4 mb-2">
+        <div className="w-10 h-[2px] bg-[#253635]" />
+        <h1 className="text-sm font-bold text-[#253635] tracking-wide">
           HOW IT WORKS
         </h1>
-        <div
-          style={{ backgroundColor: "rgb(37, 54, 53)", width: "40px", height: "2px" }}
-          className="line"
-        ></div>
+        <div className="w-10 h-[2px] bg-[#253635]" />
       </div>
-      <h2 id="how-it-works-title" className="hiw-title">
-        How Do I Get Started with BCB Carts?
+
+      <h2 className="text-2xl md:text-3xl font-bold text-[#233535] mb-2">
+        How Do I Get Started with BCB Carts & Rentals?
       </h2>
-      <p className="hiw-subtitle">
-        Ready to upgrade your ride? Follow our simple, three-step process to get the electric cart that’s perfect for your needs.
+
+      <p className="text-gray-600 text-base leading-relaxed max-w-2xl mx-auto mb-10">
+        Whether you’re upgrading your ride with a new cart or renting a car for
+        a special trip, our three-step process makes it simple.
       </p>
 
-      <div className="hiw-steps-container">
-        {/* Step 1 */}
-        <div className="hiw-step">
-          <div className="hiw-step-icon">
-            <img
-              src="https://i.postimg.cc/T1zSsXbW/i-Stock-2151690936-4-1-1.webp"
-              alt="Icon representing the first step: start your journey"
-              width="55"
-              height="65"
-              loading="lazy"
-            />
+      {/* Steps */}
+      <div className="flex flex-wrap justify-center gap-10">
+        {steps.map(({ step, title, img, alt, description }) => (
+          <div
+            key={step}
+            className="w-[300px] bg-white rounded-lg shadow-lg p-6 text-center transition-transform duration-300 hover:-translate-y-1"
+          >
+            <div className="mb-4">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#233535] text-white font-bold text-[1rem] leading-[1rem] mb-4 mx-auto">
+                {step}
+              </div>
+              <img
+                src={img}
+                alt={alt}
+                width={55}
+                height={65}
+                loading="lazy"
+                className="mx-auto mb-4"
+              />
+              <h3 className="text-lg font-bold text-[#233535]">{title}</h3>
+            </div>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              {description}
+            </p>
           </div>
-          <div className="hiw-step-number-container">
-            <div className="hiw-step-number">1</div>
-            <h3 className="hiw-step-title">Start Your Journey</h3>
-          </div>
-          <p className="hiw-step-description">
-            Complete our{" "}
-            <a 
-              href="/contact" 
-              onClick={handleContactFormClick} 
-              className="hiw-contact-link"
-            >
-              inquiry form
-            </a>{" "}
-            to let us know what you're looking for. Whether you’re interested in buying, renting, or upgrading your electric cart, get in touch to get started.
-          </p>
-        </div>
-
-        {/* Step 2 */}
-        <div className="hiw-step">
-          <div className="hiw-step-icon">
-            <img
-              src="https://i.postimg.cc/FKRsVjVk/i-Stock-2151690936-5-1-1.webp"
-              alt="Icon representing the second step: consultation"
-              width="55"
-              height="65"
-              loading="lazy"
-            />
-          </div>
-          <div className="hiw-step-number-container">
-            <div className="hiw-step-number">2</div>
-            <h3 className="hiw-step-title">Consultation</h3>
-          </div>
-          <p className="hiw-step-description">
-            Our friendly team reviews your inquiry and discusses the best electric cart options tailored to your needs. We’re here to answer your questions and guide you every step of the way.
-          </p>
-        </div>
-
-        {/* Step 3 */}
-        <div className="hiw-step">
-          <div className="hiw-step-icon">
-            <img
-              src="https://i.postimg.cc/q7Q2DXKs/i-Stock-2151690936-7-1.webp"
-              alt="Icon representing the third step: get your cart"
-              width="55"
-              height="65"
-              loading="lazy"
-            />
-          </div>
-          <div className="hiw-step-number-container">
-            <div className="hiw-step-number">3</div>
-            <h3 className="hiw-step-title">Get Your Cart</h3>
-          </div>
-          <p className="hiw-step-description">
-            Once you choose your solution, our team finalizes the details and gets your electric cart ready. Enjoy a smooth, reliable ride with our comprehensive support.
-          </p>
-        </div>
+        ))}
       </div>
     </section>
   );
-}
+};
 
 export default HowItWorksComponent;
