@@ -15,10 +15,14 @@ const Blog = ({ setShowContact }) => {
     const maxVisibleTags = 5;
     const [showAllTags, setShowAllTags] = React.useState(false);
 
-    const visibleTags = showAllTags ? blog?.tags : blog?.tags?.slice(0, maxVisibleTags) || [];
+    const visibleTags = showAllTags
+        ? blog?.tags
+        : blog?.tags?.slice(0, maxVisibleTags) || [];
     const hasMoreTags = blog?.tags?.length > maxVisibleTags;
 
-    const firstParagraphIndex = blog?.body.findIndex(block => block.type === 'paragraph');
+    const firstParagraphIndex = blog?.body.findIndex(
+        block => block.type === 'paragraph'
+    );
 
     if (!blog) {
         return (
@@ -42,9 +46,8 @@ const Blog = ({ setShowContact }) => {
             className="min-h-screen pt-28 pb-20 px-6 text-white"
             style={{
                 background:
-                    'linear-gradient(to bottom, rgba(49,46,129,0.2) 0%, rgba(49,46,129,0.85) 15%, rgba(88,28,135,0.85) 50%, rgba(219,39,119,0.85) 85%, rgba(219,39,119,0.2) 100%)',
+                    'linear-gradient(to bottom, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.7) 15%, rgba(6, 95, 70, 0.7) 50%, rgba(31, 113, 104, 0.7) 85%, rgba(20, 184, 166, 0) 100%)',
             }}
-
         >
             <Helmet>
                 <title>{blog.title} | BCBCarts</title>
@@ -75,7 +78,11 @@ const Blog = ({ setShowContact }) => {
 
             <div className="max-w-4xl mx-auto space-y-12">
                 {/* Title & Tags */}
-                <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                >
                     <motion.h1
                         className="text-4xl md:text-5xl font-serif leading-tight text-center drop-shadow-lg"
                         initial={{ opacity: 0 }}
@@ -121,19 +128,30 @@ const Blog = ({ setShowContact }) => {
                     transition={{ duration: 0.6 }}
                 >
                     <article
-                        className="prose prose-invert prose-lg max-w-none"
+                        className="
+              prose prose-invert prose-lg max-w-none
+              [&_a:not(.bm-cta)]:text-white [&_a:not(.bm-cta)]:font-semibold [&_a:not(.bm-cta)]:underline [&_a:not(.bm-cta)]:decoration-white [&_a:not(.bm-cta)]:underline-offset-2
+              hover:[&_a:not(.bm-cta)]:decoration-white/70
+              [&_a:not(.bm-cta)]:transition-colors
+            "
                     >
                         {blog.body.map((block, i) => {
                             switch (block.type) {
                                 case 'heading':
                                     return (
-                                        <h2 key={i} className="mt-10 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-500">
+                                        <h2
+                                            key={i}
+                                            className="mt-10 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-500"
+                                        >
                                             {block.text}
                                         </h2>
                                     );
                                 case 'subheading':
                                     return (
-                                        <h3 key={i} className="mt-8 text-xl font-semibold text-white border-l-4 border-indigo-400 pl-4">
+                                        <h3
+                                            key={i}
+                                            className="mt-8 text-xl font-semibold text-white border-l-4 border-indigo-400 pl-4"
+                                        >
                                             {block.text}
                                         </h3>
                                     );
@@ -143,8 +161,8 @@ const Blog = ({ setShowContact }) => {
                                         <p
                                             key={i}
                                             className={`mt-6 text-slate-200 ${isFirstPara
-                                                ? 'first-letter:text-6xl first-letter:font-serif first-letter:text-pink-500 first-letter:mr-3 first-letter:float-left'
-                                                : ''
+                                                    ? 'first-letter:text-6xl first-letter:font-serif first-letter:text-pink-500 first-letter:mr-3 first-letter:float-left'
+                                                    : ''
                                                 }`}
                                         >
                                             {renderHTML(block.text)}
@@ -153,7 +171,10 @@ const Blog = ({ setShowContact }) => {
                                 }
                                 case 'list':
                                     return (
-                                        <ul key={i} className="mt-6 list-disc text-slate-200 space-y-2 marker:text-pink-400 pl-8">
+                                        <ul
+                                            key={i}
+                                            className="mt-6 list-disc text-slate-200 space-y-2 marker:text-pink-400 pl-8"
+                                        >
                                             {block.items.map((item, j) => (
                                                 <li key={j}>{renderHTML(item)}</li>
                                             ))}
@@ -171,7 +192,6 @@ const Blog = ({ setShowContact }) => {
                                                     {block.text}
                                                 </motion.div>
                                             </Link>
-
                                         </div>
                                     );
                                 default:
