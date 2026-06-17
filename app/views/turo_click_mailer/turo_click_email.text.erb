@@ -1,0 +1,42 @@
+BCB Carts Turo Button Click
+
+Someone clicked a Book on Turo button from the BCB Carts car rentals page.
+
+Vehicle: <%= @click_details["vehicle_name"] || "N/A" %>
+Vehicle ID: <%= @click_details["vehicle_id"] || "N/A" %>
+Year / Model: <%= @click_details["vehicle_year"] || "N/A" %>
+Category: <%= @click_details["vehicle_category"] || "N/A" %>
+
+Destination URL:
+<%= @click_details["destination_url"] || "N/A" %>
+
+Page URL:
+<%= @click_details["page_url"] || "N/A" %>
+
+Canonical Page URL:
+<%= @click_details["canonical_page_url"] || "N/A" %>
+
+Referrer:
+<%= @click_details["referrer"].presence || "Direct / unavailable" %>
+
+Clicked At:
+<%= @click_details["clicked_at"] || "N/A" %>
+
+Received At:
+<%= @click_details["received_at"] || "N/A" %>
+
+IP Address:
+<%= @click_details["ip_address"] || "N/A" %>
+
+Language:
+<%= @click_details["language"] || "N/A" %>
+
+Screen:
+<% screen = @click_details["screen"] || {} %>
+<%= screen["width"] || "N/A" %> x <%= screen["height"] || "N/A" %>
+
+User Agent:
+<%= @click_details["user_agent"] || @click_details["request_user_agent"] || "N/A" %>
+
+Note:
+This is a tracked outbound booking-intent click. It does not confirm that a Turo rental was completed.

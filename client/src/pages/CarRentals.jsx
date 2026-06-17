@@ -4,8 +4,12 @@ import FooterComponent from "../sections/FooterComponent";
 import Contact from "./main/Contact";
 
 const CarRentals = () => {
+  const pageUrl = "https://www.bcbcarts.com/car-rentals";
+  const turoClickEndpoint = "/api/turo-clicks";
+
   const cars = [
     {
+      id: "ford-mustang",
       name: "Ford Mustang",
       year: "Ford Mustang",
       category: "Sporty Rental Car",
@@ -23,6 +27,7 @@ const CarRentals = () => {
         "https://turo.com/us/en/car-rental/united-states/long-beach-ca/ford/mustang/3287420"
     },
     {
+      id: "gray-dodge-grand-caravan",
       name: "Gray Dodge Grand Caravan",
       year: "Dodge Grand Caravan",
       category: "7-Seat Minivan",
@@ -41,6 +46,7 @@ const CarRentals = () => {
         "https://turo.com/us/en/minivan-rental/united-states/long-beach-ca/dodge/grand-caravan/3277933"
     },
     {
+      id: "white-dodge-grand-caravan",
       name: "White Dodge Grand Caravan",
       year: "2014 Dodge Grand Caravan",
       category: "White 7-Seat Minivan",
@@ -59,6 +65,51 @@ const CarRentals = () => {
         "https://turo.com/us/en/minivan-rental/united-states/long-beach-ca/dodge/grand-caravan/3559352"
     }
   ];
+
+  const trackTuroClick = (car) => {
+    const payload = {
+      event_type: "turo_book_click",
+      vehicle_id: car.id,
+      vehicle_name: car.name,
+      vehicle_year: car.year,
+      vehicle_category: car.category,
+      destination_url: car.link,
+      page_url: window.location.href,
+      canonical_page_url: pageUrl,
+      referrer: document.referrer || null,
+      clicked_at: new Date().toISOString(),
+      user_agent: navigator.userAgent,
+      language: navigator.language,
+      screen: {
+        width: window.screen?.width || null,
+        height: window.screen?.height || null
+      }
+    };
+
+    try {
+      const body = JSON.stringify(payload);
+
+      if (navigator.sendBeacon) {
+        const blob = new Blob([body], {
+          type: "application/json"
+        });
+
+        navigator.sendBeacon(turoClickEndpoint, blob);
+        return;
+      }
+
+      fetch(turoClickEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body,
+        keepalive: true
+      }).catch(() => {});
+    } catch (error) {
+      // Never block the customer from opening Turo because tracking failed.
+    }
+  };
 
   const scrollToContactForm = (event) => {
     event.preventDefault();
@@ -92,37 +143,112 @@ const CarRentals = () => {
 
   const richSnippet = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "BCB Carts Turo Car Rentals in Long Beach",
-    description:
-      "BCB Carts offers local car rentals in Long Beach through Turo, including a Ford Mustang and Dodge Grand Caravan minivan options with easy online booking.",
-    url: "https://www.bcbcarts.com/car-rentals",
-    itemListElement: cars.map((car, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      url: car.link,
-      item: {
-        "@type": "Product",
-        name: car.year,
-        image: car.image,
-        description: car.description,
-        brand: car.year.includes("Dodge")
-          ? "Dodge"
-          : car.year.includes("Ford")
-          ? "Ford"
-          : car.name.split(" ")[0],
-        offers: {
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: "Car Rentals in Long Beach | BCB Carts Turo Rentals",
+        description:
+          "Rent a car in Long Beach through BCB Carts on Turo. Browse local options like a Ford Mustang and Dodge Grand Caravan minivans with easy booking, clean vehicles, and local support.",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": "https://www.bcbcarts.com/#website",
+          name: "BCB Carts",
+          url: "https://www.bcbcarts.com"
+        },
+        about: {
+          "@id": "https://www.bcbcarts.com/#localbusiness"
+        }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.bcbcarts.com/#localbusiness",
+        name: "BCB Carts",
+        url: "https://www.bcbcarts.com",
+        image:
+          "https://res.cloudinary.com/djtsuktwb/image/upload/v1753832966/IMG_1869_j15ycp.jpg",
+        areaServed: [
+          {
+            "@type": "City",
+            name: "Long Beach"
+          },
+          {
+            "@type": "State",
+            name: "California"
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: "Southern California"
+          }
+        ],
+        makesOffer: cars.map((car) => ({
           "@type": "Offer",
+          name: `${car.year} rental in Long Beach`,
           url: car.link,
           availability: "https://schema.org/InStock",
-          seller: {
-            "@type": "LocalBusiness",
-            name: "BCB Carts",
-            url: "https://www.bcbcarts.com"
+          itemOffered: {
+            "@type": "Service",
+            name: `${car.year} rental through Turo`,
+            serviceType: "Car rental",
+            description: car.description,
+            image: car.image,
+            areaServed: {
+              "@type": "City",
+              name: "Long Beach"
+            }
           }
-        }
+        }))
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${pageUrl}#rental-list`,
+        name: "BCB Carts Turo Car Rentals in Long Beach",
+        description:
+          "A list of local Long Beach car rental options from BCB Carts that can be booked through Turo.",
+        url: pageUrl,
+        numberOfItems: cars.length,
+        itemListElement: cars.map((car, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          url: car.link,
+          name: `${car.year} rental in Long Beach`,
+          item: {
+            "@type": "Service",
+            name: `${car.year} rental through Turo`,
+            serviceType: "Car rental",
+            provider: {
+              "@id": "https://www.bcbcarts.com/#localbusiness"
+            },
+            areaServed: {
+              "@type": "City",
+              name: "Long Beach"
+            },
+            image: car.image,
+            description: car.description,
+            url: car.link
+          }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.bcbcarts.com"
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Car Rentals",
+            item: pageUrl
+          }
+        ]
       }
-    }))
+    ]
   };
 
   return (
@@ -140,7 +266,7 @@ const CarRentals = () => {
           content="Long Beach car rentals, Turo Long Beach, Dodge Grand Caravan rental Long Beach, Ford Mustang rental Long Beach, BCB Carts rentals, rent a car Long Beach, minivan rental Long Beach, 7 seat minivan rental Long Beach"
         />
 
-        <link rel="canonical" href="https://www.bcbcarts.com/car-rentals" />
+        <link rel="canonical" href={pageUrl} />
 
         <meta
           property="og:title"
@@ -151,10 +277,7 @@ const CarRentals = () => {
           content="Browse BCB Carts car rentals in Long Beach and book directly through Turo. Choose from local vehicles like a Ford Mustang and Dodge Grand Caravan minivans."
         />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://www.bcbcarts.com/car-rentals"
-        />
+        <meta property="og:url" content={pageUrl} />
         <meta
           property="og:image"
           content="https://res.cloudinary.com/djtsuktwb/image/upload/v1753832966/IMG_1869_j15ycp.jpg"
@@ -222,7 +345,7 @@ const CarRentals = () => {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {cars.map((car) => (
               <article
-                key={car.name}
+                key={car.id}
                 className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-slate-100"
               >
                 <div className="relative">
@@ -266,6 +389,7 @@ const CarRentals = () => {
                     href={car.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackTuroClick(car)}
                     className="mt-6 inline-flex w-full justify-center items-center rounded-xl bg-blue-700 px-5 py-3 text-base font-bold text-white hover:bg-blue-800 transition-colors"
                   >
                     Book on Turo
