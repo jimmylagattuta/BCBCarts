@@ -4,7 +4,7 @@
   <!-- Home Page -->
   <url>
     <loc>https://www.bcbcarts.com/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -16,18 +16,21 @@
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/contact</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/privacy-policy</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/faq</loc>
     <lastmod>2025-02-16</lastmod>
@@ -42,48 +45,56 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/services/cart-sales</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/services/cart-rentals</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/services/installs</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/services/lithium</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/services/parts</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/services/pressure-wash</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/services/custom-weld</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/services/electronics</loc>
     <lastmod>2025-02-16</lastmod>
@@ -98,78 +109,91 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/long-beach</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/cypress</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/buena-park</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/seal-beach</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/lakewood</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/anaheim</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/huntington-beach</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/newport-beach</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/irvine</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/santa-ana</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/costa-mesa</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/san-pedro</loc>
     <lastmod>2025-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
     <loc>https://www.bcbcarts.com/locations/griffin</loc>
     <lastmod>2025-02-16</lastmod>
@@ -180,19 +204,19 @@
   <!-- Blog Index / Rental Pages -->
   <url>
     <loc>https://www.bcbcarts.com/blogs</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.bcbcarts.com/car-rentals</loc>
-    <lastmod>2025-02-16</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Golf Cart SEO Campaign Blogs -->
+  <!-- Golf Cart SEO Campaign Blogs: Batch 1 -->
   <url>
     <loc>https://www.bcbcarts.com/blog/mobile-golf-cart-repair-long-beach-cypress-buena-park</loc>
     <lastmod>2026-06-11</lastmod>
@@ -261,6 +285,42 @@
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Golf Cart SEO Campaign Blogs: Batch 2 -->
+  <url>
+    <loc>https://www.bcbcarts.com/blog/gem-car-service-long-beach</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bcbcarts.com/blog/club-car-repair-long-beach</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bcbcarts.com/blog/club-car-ds-gas-pedal-potentiometer</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bcbcarts.com/blog/golf-cart-radio-speaker-installation</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bcbcarts.com/blog/golf-cart-cleaning-detailing-reconditioning</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Existing Car Rental Blogs -->
