@@ -28,6 +28,12 @@ Received At:
 IP Address:
 <%= @click_details["ip_address"] || "N/A" %>
 
+Approx Location Signal:
+<%= @click_details["timezone"].presence || "Unavailable" %>
+<% if @click_details["timezone_offset_minutes"].present? %>
+UTC offset minutes: <%= @click_details["timezone_offset_minutes"] %>
+<% end %>
+
 Language:
 <%= @click_details["language"] || "N/A" %>
 

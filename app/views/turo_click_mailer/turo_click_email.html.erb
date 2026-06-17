@@ -80,6 +80,17 @@
       </tr>
 
       <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Approx Location Signal</td>
+        <td style="border-bottom: 1px solid #e5e7eb;">
+          <%= @click_details["timezone"].presence || "Unavailable" %>
+          <% if @click_details["timezone_offset_minutes"].present? %>
+            /
+            UTC offset minutes: <%= @click_details["timezone_offset_minutes"] %>
+          <% end %>
+        </td>
+      </tr>
+
+      <tr>
         <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Language</td>
         <td style="border-bottom: 1px solid #e5e7eb;"><%= @click_details["language"] || "N/A" %></td>
       </tr>

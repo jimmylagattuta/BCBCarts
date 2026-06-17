@@ -80,6 +80,8 @@ const CarRentals = () => {
       clicked_at: new Date().toISOString(),
       user_agent: navigator.userAgent,
       language: navigator.language,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || null,
+      timezone_offset_minutes: new Date().getTimezoneOffset(),
       screen: {
         width: window.screen?.width || null,
         height: window.screen?.height || null

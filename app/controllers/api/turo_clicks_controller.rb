@@ -17,6 +17,8 @@ module Api
         :clicked_at,
         :user_agent,
         :language,
+        :timezone,
+        :timezone_offset_minutes,
         screen: [
           :width,
           :height
