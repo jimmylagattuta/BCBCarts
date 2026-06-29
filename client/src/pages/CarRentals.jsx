@@ -15,6 +15,7 @@ const CarRentals = () => {
       category: "Sporty Rental Car",
       image:
         "https://res.cloudinary.com/djtsuktwb/image/upload/v1753832728/IMG_1907_smsgnv.jpg",
+      imagePosition: "center center",
       description:
         "Take a cruise down the coast in style. A great choice for weekend trips, beach drives, date nights, and visitors who want something more fun than a basic rental car.",
       highlights: [
@@ -33,6 +34,7 @@ const CarRentals = () => {
       category: "7-Seat Minivan",
       image:
         "https://res.cloudinary.com/djtsuktwb/image/upload/v1753832966/IMG_1869_j15ycp.jpg",
+      imagePosition: "center center",
       description:
         "Spacious, practical, and reliable. A strong option for families, airport trips, group transportation, beach days, errands, luggage, and hauling gear around Long Beach.",
       highlights: [
@@ -52,6 +54,7 @@ const CarRentals = () => {
       category: "White 7-Seat Minivan",
       image:
         "https://res.cloudinary.com/djtsuktwb/image/upload/v1781722540/aMfVVoaKTBalael-uOHn8w_fljuvx.avif",
+      imagePosition: "center center",
       description:
         "A clean white 7-seat Dodge Grand Caravan available in Long Beach. Great for families, airport trips, group transportation, beach days, luggage, errands, and local Southern California travel.",
       highlights: [
@@ -63,6 +66,27 @@ const CarRentals = () => {
       ],
       link:
         "https://turo.com/us/en/minivan-rental/united-states/long-beach-ca/dodge/grand-caravan/3559352"
+    },
+    {
+      id: "nissan-versa-2016",
+      name: "Nissan Versa",
+      year: "2016 Nissan Versa S",
+      category: "Fuel-Efficient Compact Car",
+      image:
+        "https://res.cloudinary.com/djtsuktwb/image/upload/f_auto,q_auto,c_fill,g_auto,w_1200,h_700/v1782716535/IMG_5018_qgeqo7.heic",
+      imagePosition: "center center",
+      description:
+        "A practical, fuel-efficient compact car available in Long Beach. This 2016 Nissan Versa S seats up to 5 passengers, uses regular gas, gets an estimated 35 MPG, and is a strong choice for errands, commuting, visitors, and simple local transportation.",
+      highlights: [
+        "Seats up to 5 passengers",
+        "Regular gas",
+        "Estimated 35 MPG",
+        "Manual transmission",
+        "Bluetooth and AUX input",
+        "Long Beach pickup"
+      ],
+      link:
+        "https://turo.com/us/en/car-rental/united-states/long-beach-ca/nissan/versa/3671270"
     }
   ];
 
@@ -152,7 +176,7 @@ const CarRentals = () => {
         url: pageUrl,
         name: "Car Rentals in Long Beach | BCB Carts Turo Rentals",
         description:
-          "Rent a car in Long Beach through BCB Carts on Turo. Browse local options like a Ford Mustang and Dodge Grand Caravan minivans with easy booking, clean vehicles, and local support.",
+          "Rent a car in Long Beach through BCB Carts on Turo. Browse local options like a Ford Mustang, Dodge Grand Caravan minivans, and a fuel-efficient Nissan Versa with easy booking, clean vehicles, and local support.",
         isPartOf: {
           "@type": "WebSite",
           "@id": "https://www.bcbcarts.com/#website",
@@ -191,7 +215,7 @@ const CarRentals = () => {
           availability: "https://schema.org/InStock",
           itemOffered: {
             "@type": "Service",
-            name: `${car.year} rental through Turo`,
+            name: `${car.year} rental through BCB Carts`,
             serviceType: "Car rental",
             description: car.description,
             image: car.image,
@@ -217,7 +241,7 @@ const CarRentals = () => {
           name: `${car.year} rental in Long Beach`,
           item: {
             "@type": "Service",
-            name: `${car.year} rental through Turo`,
+            name: `${car.year} rental through BCB Carts`,
             serviceType: "Car rental",
             provider: {
               "@id": "https://www.bcbcarts.com/#localbusiness"
@@ -260,12 +284,12 @@ const CarRentals = () => {
 
         <meta
           name="description"
-          content="Rent a car in Long Beach through BCB Carts on Turo. Browse local options like a Ford Mustang and Dodge Grand Caravan minivans with easy booking, clean vehicles, and local support."
+          content="Rent a car in Long Beach through BCB Carts on Turo. Browse local options like a Ford Mustang, Dodge Grand Caravan minivans, and a fuel-efficient Nissan Versa with easy booking, clean vehicles, and local support."
         />
 
         <meta
           name="keywords"
-          content="Long Beach car rentals, Turo Long Beach, Dodge Grand Caravan rental Long Beach, Ford Mustang rental Long Beach, BCB Carts rentals, rent a car Long Beach, minivan rental Long Beach, 7 seat minivan rental Long Beach"
+          content="Long Beach car rentals, Turo Long Beach, Nissan Versa rental Long Beach, 2016 Nissan Versa rental, Dodge Grand Caravan rental Long Beach, Ford Mustang rental Long Beach, BCB Carts rentals, rent a car Long Beach, minivan rental Long Beach, compact car rental Long Beach, manual transmission rental Long Beach"
         />
 
         <link rel="canonical" href={pageUrl} />
@@ -276,13 +300,13 @@ const CarRentals = () => {
         />
         <meta
           property="og:description"
-          content="Browse BCB Carts car rentals in Long Beach and book directly through Turo. Choose from local vehicles like a Ford Mustang and Dodge Grand Caravan minivans."
+          content="Browse BCB Carts car rentals in Long Beach and book directly through Turo. Choose from local vehicles like a Ford Mustang, Dodge Grand Caravan minivans, and a Nissan Versa."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={pageUrl} />
         <meta
           property="og:image"
-          content="https://res.cloudinary.com/djtsuktwb/image/upload/v1753832966/IMG_1869_j15ycp.jpg"
+          content="https://res.cloudinary.com/djtsuktwb/image/upload/f_auto,q_auto,c_fill,g_auto,w_1200,h_700/v1782716535/IMG_5018_qgeqo7.heic"
         />
 
         <script type="application/ld+json">
@@ -339,12 +363,13 @@ const CarRentals = () => {
 
             <p className="mt-4 text-lg text-slate-600 leading-relaxed">
               Browse BCB Carts vehicles and book securely through Turo. Whether
-              you need a fun coastal cruiser or a practical 7-seat minivan, our
-              Long Beach rental options are built for convenience.
+              you need a fun coastal cruiser, a practical 7-seat minivan, or a
+              fuel-efficient compact car, our Long Beach rental options are
+              built for convenience.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-2">
             {cars.map((car) => (
               <article
                 key={car.id}
@@ -353,8 +378,11 @@ const CarRentals = () => {
                 <div className="relative">
                   <img
                     src={car.image}
-                    alt={`${car.year} rental in Long Beach through BCB Carts on Turo`}
-                    className="w-full h-72 object-cover"
+                    alt={`${car.year} rental in Long Beach through BCB Carts`}
+                    className="w-full h-80 object-cover"
+                    style={{
+                      objectPosition: car.imagePosition || "center center"
+                    }}
                   />
 
                   <div className="absolute top-4 left-4 rounded-full bg-white/95 px-4 py-2 text-sm font-bold text-slate-900 shadow">
@@ -452,9 +480,10 @@ const CarRentals = () => {
                     Practical Vehicle Options
                   </h3>
                   <p className="mt-2 text-slate-600">
-                    Choose a fun Mustang for coastal drives or a Dodge Grand
-                    Caravan when you need extra seats, space, luggage room, or
-                    family-friendly transportation.
+                    Choose a fun Mustang for coastal drives, a Dodge Grand
+                    Caravan when you need extra seats and luggage room, or a
+                    Nissan Versa when you want simple, fuel-efficient local
+                    transportation.
                   </p>
                 </div>
               </div>
