@@ -73,8 +73,8 @@ const CarRentals = () => {
       year: "2016 Nissan Versa S",
       category: "Fuel-Efficient Compact Car",
       image:
-        "https://res.cloudinary.com/djtsuktwb/image/upload/f_auto,q_auto,c_fill,g_auto,w_1200,h_700/v1782716535/IMG_5018_qgeqo7.heic",
-      imagePosition: "center center",
+        "https://res.cloudinary.com/djtsuktwb/image/upload/f_auto,q_auto/v1782830829/IMG_5005_owhaz6",
+      imagePosition: "center 5%",
       description:
         "A practical, fuel-efficient compact car available in Long Beach. This 2016 Nissan Versa S seats up to 5 passengers, uses regular gas, gets an estimated 35 MPG, and is a strong choice for errands, commuting, visitors, and simple local transportation.",
       highlights: [
