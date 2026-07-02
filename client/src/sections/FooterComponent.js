@@ -190,26 +190,6 @@ function FooterComponent() {
 
           <ul className="address-list">
             <li>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=123+Cart+Avenue,+Long+Beach,+CA+90802"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Long Beach - 123 Cart Avenue, Long Beach, CA 90802
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=456+Electric+Street,+Griffin,+GA+30223"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Griffin - 456 Electric Street, Griffin, GA 30223
-              </a>
-            </li>
-
-            <li>
               <strong>Phone: </strong>
               <a
                 href="tel:+13233333471"
