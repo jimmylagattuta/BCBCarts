@@ -3,7 +3,7 @@ module Api
     skip_before_action :verify_authenticity_token, only: [:create]
 
     def create
-      ContactClickMailer.contact_click(contact_click_params.to_h).deliver_later
+      ContactClickMailer.contact_click(contact_click_params.to_h).deliver_now
 
       render json: { ok: true }, status: :ok
     rescue => error
