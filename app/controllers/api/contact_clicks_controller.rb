@@ -1,6 +1,6 @@
 module Api
   class ContactClicksController < ApplicationController
-    protect_from_forgery with: :null_session
+    skip_before_action :verify_authenticity_token, only: [:create]
 
     def create
       ContactClickMailer.contact_click(contact_click_params.to_h).deliver_later
@@ -8,8 +8,12 @@ module Api
       render json: { ok: true }, status: :ok
     rescue => error
       Rails.logger.error("[ContactClicksController] #{error.class}: #{error.message}")
+      Rails.logger.error(error.backtrace.join("\n")) if error.backtrace.present?
 
-      render json: { ok: false }, status: :internal_server_error
+      render json: {
+        ok: false,
+        error: "contact_click_failed"
+      }, status: :internal_server_error
     end
 
     private
