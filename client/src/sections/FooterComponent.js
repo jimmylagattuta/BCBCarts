@@ -1,18 +1,65 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
-  faFacebook, 
-  faSnapchat, 
-  faTiktok, 
-  faYoutube, 
-  faPinterest, 
-  faThreads, 
-  faInstagram 
+import {
+  faFacebook,
+  faSnapchat,
+  faTiktok,
+  faYoutube,
+  faPinterest,
+  faThreads,
+  faInstagram
 } from "@fortawesome/free-brands-svg-icons";
 import "./FooterComponent.css";
 
 function FooterComponent() {
   const currentYear = new Date().getFullYear();
+  const contactClickEndpoint = "/api/contact-clicks";
+  const canonicalPageUrl = "https://www.bcbcarts.com";
+
+  const trackContactClick = ({ contactType, label, href }) => {
+    const payload = {
+      event_type: "contact_click",
+      contact_type: contactType,
+      label,
+      href,
+      page_url: window.location.href,
+      canonical_page_url: canonicalPageUrl,
+      referrer: document.referrer || null,
+      clicked_at: new Date().toISOString(),
+      user_agent: navigator.userAgent,
+      language: navigator.language,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || null,
+      timezone_offset_minutes: new Date().getTimezoneOffset(),
+      screen: {
+        width: window.screen?.width || null,
+        height: window.screen?.height || null
+      }
+    };
+
+    try {
+      const body = JSON.stringify(payload);
+
+      if (navigator.sendBeacon) {
+        const blob = new Blob([body], {
+          type: "application/json"
+        });
+
+        navigator.sendBeacon(contactClickEndpoint, blob);
+        return;
+      }
+
+      fetch(contactClickEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body,
+        keepalive: true
+      }).catch(() => {});
+    } catch (error) {
+      // Never block the visitor from calling or emailing because tracking failed.
+    }
+  };
 
   return (
     <footer className="footer-container">
@@ -164,12 +211,32 @@ function FooterComponent() {
 
             <li>
               <strong>Phone: </strong>
-              <a href="tel:+13233333471">&nbsp;+1-323-333-3471</a>
+              <a
+                href="tel:+13233333471"
+                onClick={() =>
+                  trackContactClick({
+                    contactType: "phone",
+                    label: "Footer Phone",
+                    href: "tel:+13233333471"
+                  })
+                }
+              >
+                &nbsp;+1-323-333-3471
+              </a>
             </li>
 
             <li>
               <strong>Email: </strong>
-              <a href="mailto:mebcb@yahoo.com">
+              <a
+                href="mailto:mebcb@yahoo.com"
+                onClick={() =>
+                  trackContactClick({
+                    contactType: "email",
+                    label: "Footer Email",
+                    href: "mailto:mebcb@yahoo.com"
+                  })
+                }
+              >
                 &nbsp;mebcb@yahoo.com
               </a>
             </li>

@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  namespace :api do
-    get 'turo_clicks/create'
-  end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
   # Auth / User routes
   post "/signup", to: "api/users#create"
   get "/me", to: "api/users#show"
@@ -13,8 +8,9 @@ Rails.application.routes.draw do
   # Contact form
   post "/contact", to: "api/contacts#create"
 
-  # Turo click tracking
+  # Click tracking
   post "/api/turo-clicks", to: "api/turo_clicks#create"
+  post "/api/contact-clicks", to: "api/contact_clicks#create"
 
   # Jobs / admin utilities
   get "/pull_yelp_cache", to: "api/jobs#pull_yelp_cache"

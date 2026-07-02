@@ -1,0 +1,14 @@
+BCB Carts Contact Click
+
+Someone clicked a contact option on the BCB Carts website.
+
+Contact Type: <%= @payload["contact_type"] %>
+Label: <%= @payload["label"] %>
+Clicked Link: <%= @payload["href"] %>
+Page URL: <%= @payload["page_url"] %>
+Referrer: <%= @payload["referrer"] %>
+Clicked At: <%= @payload["clicked_at"] %>
+Timezone: <%= @payload["timezone"] %>
+Language: <%= @payload["language"] %>
+User Agent: <%= @payload["user_agent"] %>
+Screen: <%= @payload.dig("screen", "width") %> x <%= @payload.dig("screen", "height") %>

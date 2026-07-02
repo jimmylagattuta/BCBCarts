@@ -1,0 +1,59 @@
+<h2>BCB Carts Contact Click</h2>
+
+<p>
+  Someone clicked a contact option on the BCB Carts website.
+</p>
+
+<table cellpadding="6" cellspacing="0" border="1" style="border-collapse: collapse;">
+  <tr>
+    <th align="left">Contact Type</th>
+    <td><%= @payload["contact_type"] %></td>
+  </tr>
+
+  <tr>
+    <th align="left">Label</th>
+    <td><%= @payload["label"] %></td>
+  </tr>
+
+  <tr>
+    <th align="left">Clicked Link</th>
+    <td><%= @payload["href"] %></td>
+  </tr>
+
+  <tr>
+    <th align="left">Page URL</th>
+    <td><%= @payload["page_url"] %></td>
+  </tr>
+
+  <tr>
+    <th align="left">Referrer</th>
+    <td><%= @payload["referrer"] %></td>
+  </tr>
+
+  <tr>
+    <th align="left">Clicked At</th>
+    <td><%= @payload["clicked_at"] %></td>
+  </tr>
+
+  <tr>
+    <th align="left">Timezone</th>
+    <td><%= @payload["timezone"] %></td>
+  </tr>
+
+  <tr>
+    <th align="left">Language</th>
+    <td><%= @payload["language"] %></td>
+  </tr>
+
+  <tr>
+    <th align="left">User Agent</th>
+    <td><%= @payload["user_agent"] %></td>
+  </tr>
+
+  <tr>
+    <th align="left">Screen</th>
+    <td>
+      <%= @payload.dig("screen", "width") %> x <%= @payload.dig("screen", "height") %>
+    </td>
+  </tr>
+</table>
