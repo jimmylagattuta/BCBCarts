@@ -1,59 +1,102 @@
-<h2>BCB Carts Contact Click</h2>
+<!DOCTYPE html>
+<html>
+  <body style="font-family: Arial, sans-serif; color: #111827; line-height: 1.5;">
+    <h2 style="margin-bottom: 8px;">BCB Carts Contact Click</h2>
 
-<p>
-  Someone clicked a contact option on the BCB Carts website.
-</p>
+    <p style="margin-top: 0;">
+      Someone clicked a contact option on the BCB Carts website.
+    </p>
 
-<table cellpadding="6" cellspacing="0" border="1" style="border-collapse: collapse;">
-  <tr>
-    <th align="left">Contact Type</th>
-    <td><%= @payload["contact_type"] %></td>
-  </tr>
+    <table cellpadding="8" cellspacing="0" border="0" style="border-collapse: collapse; width: 100%; max-width: 720px;">
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Contact Type</td>
+        <td style="border-bottom: 1px solid #e5e7eb;"><%= @click_details["contact_type"] || "N/A" %></td>
+      </tr>
 
-  <tr>
-    <th align="left">Label</th>
-    <td><%= @payload["label"] %></td>
-  </tr>
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Label</td>
+        <td style="border-bottom: 1px solid #e5e7eb;"><%= @click_details["label"] || "N/A" %></td>
+      </tr>
 
-  <tr>
-    <th align="left">Clicked Link</th>
-    <td><%= @payload["href"] %></td>
-  </tr>
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Clicked Link</td>
+        <td style="border-bottom: 1px solid #e5e7eb;">
+          <%= @click_details["href"] || "N/A" %>
+        </td>
+      </tr>
 
-  <tr>
-    <th align="left">Page URL</th>
-    <td><%= @payload["page_url"] %></td>
-  </tr>
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Page URL</td>
+        <td style="border-bottom: 1px solid #e5e7eb;">
+          <% if @click_details["page_url"].present? %>
+            <a href="<%= @click_details["page_url"] %>">
+              <%= @click_details["page_url"] %>
+            </a>
+          <% else %>
+            N/A
+          <% end %>
+        </td>
+      </tr>
 
-  <tr>
-    <th align="left">Referrer</th>
-    <td><%= @payload["referrer"] %></td>
-  </tr>
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Canonical Page URL</td>
+        <td style="border-bottom: 1px solid #e5e7eb;"><%= @click_details["canonical_page_url"] || "N/A" %></td>
+      </tr>
 
-  <tr>
-    <th align="left">Clicked At</th>
-    <td><%= @payload["clicked_at"] %></td>
-  </tr>
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Referrer</td>
+        <td style="border-bottom: 1px solid #e5e7eb;"><%= @click_details["referrer"].presence || "Direct / unavailable" %></td>
+      </tr>
 
-  <tr>
-    <th align="left">Timezone</th>
-    <td><%= @payload["timezone"] %></td>
-  </tr>
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Clicked At</td>
+        <td style="border-bottom: 1px solid #e5e7eb;"><%= @click_details["clicked_at"] || "N/A" %></td>
+      </tr>
 
-  <tr>
-    <th align="left">Language</th>
-    <td><%= @payload["language"] %></td>
-  </tr>
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Received At</td>
+        <td style="border-bottom: 1px solid #e5e7eb;"><%= @click_details["received_at"] || "N/A" %></td>
+      </tr>
 
-  <tr>
-    <th align="left">User Agent</th>
-    <td><%= @payload["user_agent"] %></td>
-  </tr>
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">IP Address</td>
+        <td style="border-bottom: 1px solid #e5e7eb;"><%= @click_details["ip_address"] || "N/A" %></td>
+      </tr>
 
-  <tr>
-    <th align="left">Screen</th>
-    <td>
-      <%= @payload.dig("screen", "width") %> x <%= @payload.dig("screen", "height") %>
-    </td>
-  </tr>
-</table>
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Approx Location Signal</td>
+        <td style="border-bottom: 1px solid #e5e7eb;">
+          <%= @click_details["timezone"].presence || "Unavailable" %>
+          <% if @click_details["timezone_offset_minutes"].present? %>
+            /
+            UTC offset minutes: <%= @click_details["timezone_offset_minutes"] %>
+          <% end %>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Language</td>
+        <td style="border-bottom: 1px solid #e5e7eb;"><%= @click_details["language"] || "N/A" %></td>
+      </tr>
+
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">Screen</td>
+        <td style="border-bottom: 1px solid #e5e7eb;">
+          <% screen = @click_details["screen"] || {} %>
+          <%= screen["width"] || "N/A" %> x <%= screen["height"] || "N/A" %>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="font-weight: bold; border-bottom: 1px solid #e5e7eb;">User Agent</td>
+        <td style="border-bottom: 1px solid #e5e7eb;">
+          <%= @click_details["user_agent"] || @click_details["request_user_agent"] || "N/A" %>
+        </td>
+      </tr>
+    </table>
+
+    <p style="margin-top: 24px; color: #4b5563;">
+      This is a tracked contact-intent click. It confirms the visitor clicked the phone or email option. It does not confirm that a phone call was completed or that an email was sent.
+    </p>
+  </body>
+</html>

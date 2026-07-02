@@ -2,13 +2,45 @@ BCB Carts Contact Click
 
 Someone clicked a contact option on the BCB Carts website.
 
-Contact Type: <%= @payload["contact_type"] %>
-Label: <%= @payload["label"] %>
-Clicked Link: <%= @payload["href"] %>
-Page URL: <%= @payload["page_url"] %>
-Referrer: <%= @payload["referrer"] %>
-Clicked At: <%= @payload["clicked_at"] %>
-Timezone: <%= @payload["timezone"] %>
-Language: <%= @payload["language"] %>
-User Agent: <%= @payload["user_agent"] %>
-Screen: <%= @payload.dig("screen", "width") %> x <%= @payload.dig("screen", "height") %>
+Contact Type:
+<%= @click_details["contact_type"] || "N/A" %>
+
+Label:
+<%= @click_details["label"] || "N/A" %>
+
+Clicked Link:
+<%= @click_details["href"] || "N/A" %>
+
+Page URL:
+<%= @click_details["page_url"] || "N/A" %>
+
+Canonical Page URL:
+<%= @click_details["canonical_page_url"] || "N/A" %>
+
+Referrer:
+<%= @click_details["referrer"].presence || "Direct / unavailable" %>
+
+Clicked At:
+<%= @click_details["clicked_at"] || "N/A" %>
+
+Received At:
+<%= @click_details["received_at"] || "N/A" %>
+
+IP Address:
+<%= @click_details["ip_address"] || "N/A" %>
+
+Approx Location Signal:
+<%= @click_details["timezone"].presence || "Unavailable" %>
+<% if @click_details["timezone_offset_minutes"].present? %>
+UTC offset minutes: <%= @click_details["timezone_offset_minutes"] %>
+<% end %>
+
+Language:
+<%= @click_details["language"] || "N/A" %>
+
+Screen:
+<% screen = @click_details["screen"] || {} %>
+<%= screen["width"] || "N/A" %> x <%= screen["height"] || "N/A" %>
+
+User Agent:
+<%= @click_details["user_agent"] || @click_details["request_user_agent"] || "N/A" %>
