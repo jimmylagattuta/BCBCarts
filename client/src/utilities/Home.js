@@ -2,7 +2,6 @@ import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import HeroSection from "../sections/HeroSection";
 
-
 // Lazy-load everything else:
 const LazySocial = lazy(() => import('../components/Social'));
 const FooterComponent = lazy(() => import('../sections/FooterComponent'));
@@ -12,6 +11,8 @@ const PlaquesComponent = lazy(() => import("../sections/PlaquesComponent"));
 const OurServicesComponent = lazy(() => import("../sections/OurServicesComponent"));
 const HowItWorksComponent = lazy(() => import("../sections/HowItWorksComponent"));
 const LocationsSection = lazy(() => import("../sections/LocationsSection"));
+const CarRentalsHomeSection = lazy(() => import("../sections/CarRentalsHomeSection"));
+
 const Home = ({ scrollToContact, reviews }) => {
   // State to trigger loading of lazy sections
   const [loadRest, setLoadRest] = useState(false);
@@ -33,10 +34,10 @@ const Home = ({ scrollToContact, reviews }) => {
     "name": "BCB Carts",
     "url": "https://bcbcarts.com",
     "logo": "https://www.bcbcarts.com/BCBLogo.jpg",
-    "description": "At BCB Carts, we specialize in providing high-quality electric carts for leisure and business use. Our services include cart sales, rentals, professional installs, lithium battery upgrades, parts & accessories, pressure wash, custom welds, and electronics upgrades.",
+    "description": "At BCB Carts, we specialize in providing high-quality electric carts for leisure and business use. Our services include cart sales, rentals, professional installs, lithium battery upgrades, parts & accessories, pressure wash, custom welds, electronics upgrades, and local Long Beach car rentals through Turo.",
     "founder": {
       "@type": "Person",
-      "name": "Brandon",  // Update with the actual founder's name if desired
+      "name": "Brandon",
       "jobTitle": "Founder"
     },
     "contactPoint": {
@@ -61,7 +62,7 @@ const Home = ({ scrollToContact, reviews }) => {
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Electric Cart Services",
+      "name": "Electric Cart Services and Long Beach Car Rentals",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -142,15 +143,26 @@ const Home = ({ scrollToContact, reviews }) => {
             "description": "Modern upgrades to integrate advanced controls, sound systems, and more.",
             "url": "https://bcbcarts.com/services/electronics"
           }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "Service",
+            "name": "Long Beach Car Rentals",
+            "description": "Local Long Beach car rental options through Turo, including a Ford Mustang, Dodge Grand Caravan minivans, and a Nissan Versa.",
+            "url": "https://www.bcbcarts.com/car-rentals"
+          }
         }
       ]
     }
   };
+
   return (
     <div>
-        <Helmet>
-<script type="application/ld+json">
-{`
+      <Helmet>
+        <script type="application/ld+json">
+          {`
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -160,7 +172,7 @@ const Home = ({ scrollToContact, reviews }) => {
       "name": "BCB Carts",
       "url": "https://www.bcbcarts.com",
       "logo": "https://www.bcbcarts.com/BCBLogo.jpg",
-      "description": "BCB Carts is California and Georgia’s trusted electric cart provider. We specialize in golf cart sales, rentals, installs, lithium upgrades, accessories, electronics, custom welding, and pressure wash services.",
+      "description": "BCB Carts is California and Georgia’s trusted electric cart provider. We specialize in golf cart sales, rentals, installs, lithium upgrades, accessories, electronics, custom welding, pressure wash services, and local Long Beach car rentals through Turo.",
       "founder": {
         "@type": "Person",
         "name": "Brandon",
@@ -195,7 +207,7 @@ const Home = ({ scrollToContact, reviews }) => {
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Electric Cart Services",
+        "name": "Electric Cart Services and Long Beach Car Rentals",
         "itemListElement": [
           {
             "@type": "Offer",
@@ -268,6 +280,15 @@ const Home = ({ scrollToContact, reviews }) => {
               "description": "Cutting-edge cart tech including sound systems, control upgrades, and displays.",
               "url": "https://www.bcbcarts.com/services/electronics"
             }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Long Beach Car Rentals",
+              "description": "Local Long Beach car rental options through Turo, including a Ford Mustang, Dodge Grand Caravan minivans, and a fuel-efficient Nissan Versa.",
+              "url": "https://www.bcbcarts.com/car-rentals"
+            }
           }
         ]
       }
@@ -302,31 +323,27 @@ const Home = ({ scrollToContact, reviews }) => {
   ]
 }
 `}
-</script>
+        </script>
 
-            <title>BCB Carts - Your Trusted Partner in Electric Carts</title>
-            <meta
-            name="description"
-            content="Discover BCB Carts – your trusted partner in leisure-filled electric vehicles. We offer premium cart sales, rentals, installs, lithium upgrades, parts, pressure wash, custom weld, and electronics upgrades."
-            />
-        </Helmet>
-      {/* Eager-load only Intro */}
+        <title>BCB Carts - Your Trusted Partner in Electric Carts</title>
+        <meta
+          name="description"
+          content="Discover BCB Carts – your trusted partner in leisure-filled electric vehicles. We offer premium cart sales, rentals, installs, lithium upgrades, parts, pressure wash, custom weld, electronics upgrades, and local Long Beach car rentals through Turo."
+        />
+      </Helmet>
 
       <HeroSection />
 
-
-      {/* Conditionally render everything else */}
       {loadRest && (
         <Suspense fallback={<div>Loading...</div>}>
           <LazySocial />
           <AboutUsComponent />
+          <CarRentalsHomeSection />
           <Contact />
           <PlaquesComponent />
           <OurServicesComponent />
           <HowItWorksComponent />
           <LocationsSection />
-
-
           <FooterComponent />
         </Suspense>
       )}

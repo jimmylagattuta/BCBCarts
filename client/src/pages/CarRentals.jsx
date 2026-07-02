@@ -90,6 +90,37 @@ const CarRentals = () => {
     }
   ];
 
+  const rentalGuides = [
+    {
+      title: "Car Rental Near Downtown Long Beach and 90813",
+      description:
+        "A location-focused guide for customers searching near Downtown Long Beach, 90813, and nearby neighborhoods.",
+      href: "/blog/car-rental-near-downtown-long-beach-90813",
+      label: "Downtown / 90813"
+    },
+    {
+      title: "7-Seat Minivan Rental in Long Beach",
+      description:
+        "A practical guide for families, groups, airport trips, luggage, and Dodge Grand Caravan rental options.",
+      href: "/blog/7-seat-minivan-rental-long-beach",
+      label: "Minivan Guide"
+    },
+    {
+      title: "Cheap Compact Car Rental in Long Beach",
+      description:
+        "A budget-friendly guide for Nissan Versa rentals, compact cars, errands, commuting, and fuel-efficient local driving.",
+      href: "/blog/cheap-compact-car-rental-long-beach-nissan-versa",
+      label: "Compact Car Guide"
+    },
+    {
+      title: "Long Beach Turo Car Rentals",
+      description:
+        "A broad guide to local Turo rental options through BCB Carts, including the Mustang, Grand Caravan, and Versa.",
+      href: "/blog/long-beach-turo-car-rentals",
+      label: "Turo Guide"
+    }
+  ];
+
   const trackTuroClick = (car) => {
     const payload = {
       event_type: "turo_book_click",
@@ -254,6 +285,22 @@ const CarRentals = () => {
             description: car.description,
             url: car.link
           }
+        }))
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${pageUrl}#rental-guides`,
+        name: "Helpful Long Beach Rental Guides",
+        description:
+          "Helpful BCB Carts guides about car rentals near Downtown Long Beach, 7-seat minivan rentals, compact car rentals, and Long Beach Turo rentals.",
+        url: pageUrl,
+        numberOfItems: rentalGuides.length,
+        itemListElement: rentalGuides.map((guide, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          url: `https://www.bcbcarts.com${guide.href}`,
+          name: guide.title,
+          description: guide.description
         }))
       },
       {
@@ -522,6 +569,58 @@ const CarRentals = () => {
                 >
                   <p className="font-semibold text-slate-800">{item}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white border-y border-slate-200">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <div className="text-center max-w-3xl mx-auto mb-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700 mb-3">
+                Rental Guides
+              </p>
+
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+                Helpful Long Beach Rental Guides
+              </h2>
+
+              <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+                Not sure which vehicle fits your trip? Read our local guides for
+                Downtown Long Beach rentals, 7-seat minivans, compact cars, and
+                Turo rental options through BCB Carts.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              {rentalGuides.map((guide) => (
+                <a
+                  key={guide.href}
+                  href={guide.href}
+                  className="group block rounded-3xl bg-slate-50 p-6 border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.16em] text-blue-800">
+                      {guide.label}
+                    </span>
+
+                    <span className="text-blue-700 font-black group-hover:translate-x-1 transition-transform">
+                      →
+                    </span>
+                  </div>
+
+                  <h3 className="mt-5 text-2xl font-extrabold text-slate-900">
+                    {guide.title}
+                  </h3>
+
+                  <p className="mt-3 text-slate-600 leading-relaxed">
+                    {guide.description}
+                  </p>
+
+                  <p className="mt-5 font-bold text-blue-700">
+                    Read guide
+                  </p>
+                </a>
               ))}
             </div>
           </div>
