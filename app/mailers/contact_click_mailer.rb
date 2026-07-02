@@ -9,7 +9,6 @@ class ContactClickMailer < ApplicationMailer
 
     mail(
       to: "jimmy.lagattuta@gmail.com",
-      cc: "mebcb@yahoo.com",
       subject: "BCB Carts #{contact_type.titleize} Click: #{label}"
     )
   end
